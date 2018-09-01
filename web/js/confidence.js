@@ -92,11 +92,14 @@ if (typeof franchise_id != 'undefined' &&
         update: function (event,ui) {
           $helper = ui.helper;
           var conf = $table.children('select').val('-').length;
-          for ($pick in $(this).children('.pick')) {
-            $pick.data('conf', conf)
-            $('select[name=' + $pick.data('selectname') + ']').val(conf);
+          var $picklist = $(this).children('.pick');
+          $picklist.each(function(){
+            $(this).data('conf', conf)
+            $('select[name=' + $(this).data('selectname') + ']').val(conf);
             conf--;
-          }
+          });
+
+
 
         }
       });
