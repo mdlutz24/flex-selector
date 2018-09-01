@@ -93,7 +93,7 @@ if (typeof franchise_id != 'undefined' &&
           var $form = $('form input[name=TYPE]').parent();
           var $table = $form.find('table');
           $helper = ui.helper;
-          var conf = $table.children('select').val('-').length;
+          var conf = $table.find('select').val('-').length;
           var $picklist = $(this).children('.pick');
           $picklist.each(function(){
             $(this).data('conf', conf)
