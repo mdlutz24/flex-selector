@@ -31,7 +31,7 @@ if (typeof franchise_id != 'undefined' &&
           $hometeam.data('opponent', $awayradio.val());
           $hometeam.data('type', 'home');
           $hometeam.data('otype', 'away');
-          $hometeam.addClass('value');
+          $hometeam.addClass($homeradio.val());
 
           var $awayteam = $("<div class='awayteam away pick'></div>");
           $awayteam.html($awaytd.children('label').text());
@@ -40,7 +40,7 @@ if (typeof franchise_id != 'undefined' &&
           $awayteam.data('opponent', $homeradio.val());
           $awayteam.data('type', 'away');
           $awayteam.data('otype', 'home');
-          $awayteam.addClass('value');
+          $awayteam.addClass($awayradio.val());
 
           if ($conf.val() != '-') {
             $awayteam.data('conf', $conf.val());
