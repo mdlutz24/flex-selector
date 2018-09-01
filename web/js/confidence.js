@@ -78,6 +78,7 @@ if (typeof franchise_id != 'undefined' &&
           var value = $item.data('value');
           var name = $item.data('name');
           var opponent = $item.data('opponent');
+          var otype = $item.data('otype');
           var type = $item.data('type');
           $('.picks .' + opponent).remove();
           $('.' + type + 'teams .' + value).addClass('selected');
