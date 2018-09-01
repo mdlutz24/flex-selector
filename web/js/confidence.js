@@ -53,7 +53,7 @@ if (typeof franchise_id != 'undefined' &&
           $awayteams.append($awayteam);
 
         })
-        $matches.sort(function(a,b){return a.data(conf)-b.data(conf)})
+        $matches.sort(function(a,b){return a.data('conf')-b.data('conf')})
         for ($match in $matches) {
           $picks.append($match);
         }
