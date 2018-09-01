@@ -90,6 +90,8 @@ if (typeof franchise_id != 'undefined' &&
 
         },
         update: function (event,ui) {
+          var $form = $('form input[name=TYPE]').parent();
+          var $table = $form.find('table');
           $helper = ui.helper;
           var conf = $table.children('select').val('-').length;
           var $picklist = $(this).children('.pick');
@@ -106,7 +108,14 @@ if (typeof franchise_id != 'undefined' &&
 
       $board.find('.hometeam.pick, .awayteam.pick').draggable({
         helper: function(a,b){
-          return $(this).clone(true);
+          var $helper = $(this).clone();
+          $helper.data('name', $(this).data('name'));
+          $helper.data('otype', $(this).data('otype'));
+          $helper.data('type', $(this).data('type'));
+          $helper.data('value', $(this).data('value'));
+          $helper.data('opponent', $(this).data('opponent'));
+          $helper.data('selectname', $(this).data('selectname'));
+          return $helper;
           },
         cancel: '.selected',
         revert: 'invalid',
