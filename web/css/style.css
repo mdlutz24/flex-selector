@@ -17,9 +17,11 @@
   padding: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
-/* line 16, web/scss/style.scss */
+/* line 17, web/scss/style.scss */
 .board .hometeams {
   width: 20%;
   float: left;
@@ -27,7 +29,7 @@
   margin-right: -30%;
 }
 
-/* line 23, web/scss/style.scss */
+/* line 24, web/scss/style.scss */
 .board .awayteams {
   width: 20%;
   float: left;
@@ -35,7 +37,7 @@
   margin-right: -55%;
 }
 
-/* line 30, web/scss/style.scss */
+/* line 31, web/scss/style.scss */
 .board .picks {
   width: 20%;
   float: left;
@@ -43,8 +45,9 @@
   margin-right: -90%;
 }
 
-/* line 38, web/scss/style.scss */
+/* line 39, web/scss/style.scss */
 .board .hometeams .pick.selected, .board .awayteams .pick.selected {
   border-color: transparent;
   color: transparent;
+  cursor: auto;
 }
