@@ -24,12 +24,12 @@ if (typeof franchise_id != 'undefined' &&
           var $awaytd = $(this).children('td:nth-child(2)');
           var $awayradio = $awaytd.children('input');
 
-          var $hometeam = $("<div class='hometeam'></div>");
+          var $hometeam = $("<div class='hometeam pick'></div>");
           $hometeam.html($hometd.children('label').text());
           $hometeam.data('name', $homeradio.attr('name'));
           $hometeam.data('value', $homeradio.attr('value'));
 
-          var $awayteam = $("<div class='awayteam'></div>");
+          var $awayteam = $("<div class='awayteam pick'></div>");
           $awayteam.html($awaytd.children('label').text());
           $awayteam.data('name', $awayradio.attr('name'));
           $awayteam.data('value', $awayradio.attr('value'));
