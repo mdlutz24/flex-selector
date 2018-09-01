@@ -66,7 +66,16 @@ if (typeof franchise_id != 'undefined' &&
       }
       $picks.sortable();
 
-      $board.find('.hometeam.pick, .awayteam.pick').draggable({helper: 'clone', cancel: '.selected', revert: 'invalid', connectWithSortable: '.picks'});
+      $board.find('.hometeam.pick, .awayteam.pick').draggable({
+        helper: 'clone',
+        cancel: '.selected',
+        revert: 'invalid',
+        connectWithSortable: '.picks',
+        start: function(event, ui) {
+          ui.helper.width($('.hometeam').width());
+        }
+
+      });
 
     });
   })(jQuery, window, document, franchise_id, league_id, liveScoringWeek, thisProgram);
