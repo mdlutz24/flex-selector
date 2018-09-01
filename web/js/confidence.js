@@ -95,7 +95,7 @@ if (typeof franchise_id != 'undefined' &&
           var $picklist = $(this).children('.pick');
           $picklist.each(function(){
             $(this).data('conf', conf)
-            $("select[name='" + $(this).data('selectname') + "']").val(conf);
+            $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
             conf--;
           });
 
