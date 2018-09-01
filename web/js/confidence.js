@@ -20,7 +20,7 @@ if (typeof franchise_id != 'undefined' &&
           if (!$(this).hasClass('oddtablerow') && !$(this).hasClass('eventablerow')) return;
           var $hometd = $(this).children('td:first-child');
           var $homeradio = $hometd.children('input');
-          var $conf = $(this).children('td.inputfield select');
+          var $conf = $(this).find('select');
           var $awaytd = $(this).children('td:nth-child(2)');
           var $awayradio = $awaytd.children('input');
 
