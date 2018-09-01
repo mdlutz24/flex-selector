@@ -31,6 +31,7 @@ if (typeof franchise_id != 'undefined' &&
           $hometeam.data('opponent', $awayradio.val());
           $hometeam.data('type', 'home');
           $hometeam.data('otype', 'away');
+          $hometeam.data('selectname', $conf.attr('name'));
           $hometeam.addClass($homeradio.val());
 
           var $awayteam = $("<div class='awayteam away pick'></div>");
@@ -40,6 +41,7 @@ if (typeof franchise_id != 'undefined' &&
           $awayteam.data('opponent', $homeradio.val());
           $awayteam.data('type', 'away');
           $awayteam.data('otype', 'home');
+          $awayteam.data('selectname', $conf.attr('name'));
           $awayteam.addClass($awayradio.val());
 
           if ($conf.val() != '-') {
@@ -89,6 +91,12 @@ if (typeof franchise_id != 'undefined' &&
         },
         update: function (event,ui) {
           $helper = ui.helper;
+          var conf = $table.children('select').val('-').length;
+          for ($pick in $(this).children('.pick')) {
+            $pick.data('conf', conf)
+            $('select[name=' + $pick.data('selectname') + ']').val(conf);
+            conf--;
+          }
 
         }
       });
