@@ -70,7 +70,7 @@ if (typeof franchise_id != 'undefined' &&
         helper: 'clone',
         cancel: '.selected',
         revert: 'invalid',
-        connectWithSortable: '.picks',
+        connectToSortable: '.picks',
         start: function(event, ui) {
           ui.helper.width($('.hometeam').width());
         }
