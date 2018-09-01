@@ -83,7 +83,7 @@ if (typeof franchise_id != 'undefined' &&
           $('.picks .' + opponent).remove();
           $('.' + type + 'teams .' + value).addClass('selected');
           $('.' + otype + 'teams .' + opponent).removeClass('selected');
-          $('input[value=' + value +']').check();
+          $('input[value=' + value +']').prop('checked', true);
 
 
         }
