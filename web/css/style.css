@@ -43,9 +43,11 @@
   float: left;
   margin-left: 70%;
   margin-right: -90%;
+  background-color: #acacac;
+  min-height: 30px;
 }
 
-/* line 39, web/scss/style.scss */
+/* line 41, web/scss/style.scss */
 .board .hometeams .pick.selected, .board .awayteams .pick.selected {
   border-color: grey;
   cursor: auto;
