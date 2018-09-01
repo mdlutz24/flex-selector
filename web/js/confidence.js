@@ -24,15 +24,23 @@ if (typeof franchise_id != 'undefined' &&
           var $awaytd = $(this).children('td:nth-child(2)');
           var $awayradio = $awaytd.children('input');
 
-          var $hometeam = $("<div class='hometeam pick unselected'></div>");
+          var $hometeam = $("<div class='hometeam home pick'></div>");
           $hometeam.html($hometd.children('label').text());
           $hometeam.data('name', $homeradio.attr('name'));
-          $hometeam.data('value', $homeradio.attr('value'));
+          $hometeam.data('value', $homeradio.val());
+          $hometeam.data('opponent', $awayradio.val());
+          $hometeam.data('type', 'home');
+          $hometeam.data('otype', 'away');
+          $hometeam.addClass('value');
 
-          var $awayteam = $("<div class='awayteam pick unselected'></div>");
+          var $awayteam = $("<div class='awayteam away pick'></div>");
           $awayteam.html($awaytd.children('label').text());
           $awayteam.data('name', $awayradio.attr('name'));
-          $awayteam.data('value', $awayradio.attr('value'));
+          $awayteam.data('value', $awayradio.val());
+          $awayteam.data('opponent', $homeradio.val());
+          $awayteam.data('type', 'away');
+          $awayteam.data('otype', 'home');
+          $awayteam.addClass('value');
 
           if ($conf.val() != '-') {
             $awayteam.data('conf', $conf.val());
@@ -41,12 +49,12 @@ if (typeof franchise_id != 'undefined' &&
 
           if ($awayradio.is(':checked')) {
             $awayteam.data('selected', true);
-            $awayteam.addClass('selected').removeClass('unselected');;
+            $awayteam.addClass('selected');
             $matches.push($awayteam.clone());
           }
           if ($homeradio.is(':checked')) {
             $hometeam.data('selected', true);
-            $hometeam.addClass('selected').removeClass('unselected');
+            $hometeam.addClass('selected');
             $matches.push($hometeam.clone());
           }
           $hometeams.append($hometeam);
@@ -64,7 +72,21 @@ if (typeof franchise_id != 'undefined' &&
         $form.after($board);
 
       }
-      $picks.sortable();
+      $picks.sortable({
+        receive: function(event, ui) {
+          var $item = ui.item;
+          var value = $item.data('value');
+          var name = $item.data('name');
+          var opponent = $item.data('opponent');
+          var type = $item.data('type');
+          $('.picks .' + opponent).remove();
+          $('.' + type + 'teams .' + value).addClass('selected');
+          $('.' + otype + 'teams .' + opponent).removeClass('selected');
+          $('input[value=' + value +']').check();
+
+
+        }
+      });
 
       $board.find('.hometeam.pick, .awayteam.pick').draggable({
         helper: 'clone',
