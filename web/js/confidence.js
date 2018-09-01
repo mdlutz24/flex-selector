@@ -86,6 +86,10 @@ if (typeof franchise_id != 'undefined' &&
           $('input[value=' + value +']').prop('checked', true);
 
 
+        },
+        update: function (event,ui) {
+          $helper = ui.helper;
+
         }
       });
 
