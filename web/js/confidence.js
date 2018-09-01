@@ -24,12 +24,12 @@ if (typeof franchise_id != 'undefined' &&
           var $awaytd = $(this).children('td:nth-child(2)');
           var $awayradio = $awaytd.children('input');
 
-          var $hometeam = $("<div class='hometeam pick'></div>");
+          var $hometeam = $("<div class='hometeam pick unselected'></div>");
           $hometeam.html($hometd.children('label').text());
           $hometeam.data('name', $homeradio.attr('name'));
           $hometeam.data('value', $homeradio.attr('value'));
 
-          var $awayteam = $("<div class='awayteam pick'></div>");
+          var $awayteam = $("<div class='awayteam pick unselected'></div>");
           $awayteam.html($awaytd.children('label').text());
           $awayteam.data('name', $awayradio.attr('name'));
           $awayteam.data('value', $awayradio.attr('value'));
@@ -41,12 +41,12 @@ if (typeof franchise_id != 'undefined' &&
 
           if ($awayradio.is(':checked')) {
             $awayteam.data('selected', true);
-            $awayteam.addClass('selected');
+            $awayteam.addClass('selected').removeClass('unselected');;
             $matches.push($awayteam.clone());
           }
           if ($homeradio.is(':checked')) {
             $hometeam.data('selected', true);
-            $hometeam.addClass('selected');
+            $hometeam.addClass('selected').removeClass('unselected');
             $matches.push($hometeam.clone());
           }
           $hometeams.append($hometeam);
@@ -64,6 +64,9 @@ if (typeof franchise_id != 'undefined' &&
         $form.after($board);
 
       }
+      $picks.sortable();
+
+      $board.find('.hometeam.pick, .awayteam.pick').draggable({helper: 'clone', cancel: '.selected', revert: 'invalid', connectWithSortable: '.picks'});
 
     });
   })(jQuery, window, document, franchise_id, league_id, liveScoringWeek, thisProgram);
