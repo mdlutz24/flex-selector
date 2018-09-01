@@ -1,0 +1,65 @@
+td, th{
+padding: 0 10px;
+}
+
+table.homepagemodule, table.report{
+border: 1px solid #666;
+box-shadow: 1px 1px 5px #666;
+}
+
+.homepagecolumn #standings h3, 
+.homepagecolumn #brief_standings h3, 
+caption, h3 {
+background: transparent none;
+}
+
+#division00, #division01, #division02, #division03{
+background:#333 url(http://www9.myfantasyleague.com/skins/tropical/header.jpg) 0 -80px no-repeat;
+}
+
+#homepagetabs{
+background: transparent;
+}
+#homepagetabs li{
+border-radius: 5px 5px 0 0;
+}
+
+#vsubmenu{
+padding: 10px;
+background-color: #666;
+border-radius: 0 5px 5px 0;
+border: 1px solid #333;
+border-left: 0px;
+margin-right: 20px;
+box-shadow: 0 0 5px #666;
+}
+
+#withmenus.withleft{
+margin-left: 142px;
+}
+
+#hsubmenu{
+padding: 4px 0;
+margin: 10px 0;
+background-color: #666;
+border-radius: 5px;
+border: 1px solid #333;
+display: block;
+margin: 10px auto;
+width: 800px;
+}
+
+#homepagetabs li{
+background: #666;
+color: white;
+border-color: #666;
+}
+
+#homepagetabs li.currenttab{
+border-color: #666;
+color: #666;
+}
+
+#homepagetabs{
+    border-bottom: 2px solid #666;
+}

@@ -1,0 +1,367 @@
+@import url(../../skins/all.css);
+
+/*-------------------------------------------------*/
+/* Rules for HTML selectors.                       */
+/*-------------------------------------------------*/
+body {
+  margin:0px;
+  margin-top: 24px;
+  padding: 0px;
+  background: #fff;
+  color: #000033;
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+}
+
+a:link, a:visited, a:active {color: #000033;}
+a:hover {color: #b22222;}
+
+th {
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  background: #000033 url(right_caption_selected.gif) repeat-x;
+  height: 17px;
+  line-height: 17px;
+}
+
+th a:link, th a:visited, th a:active {
+  color: #ccc;
+}
+
+th a:hover {
+  color: #b22222;
+}
+
+h3 {
+  font-size: 9pt;
+  font-weight: bold;
+  color: #ddbf78;
+  background-color: #b22222;
+  border: 1px ridge #000033;
+}
+
+h3 a:link, h3 a:visited, h3 a:active {
+  color: #eee;
+}
+
+h3 a:hover {
+  color: #fff;
+}
+
+textarea {width: 98%;}
+
+/*-------------------------------------------------*/
+/* General page setup rules                        */
+/*-------------------------------------------------*/
+.pagebody {
+  margin-top: 5px;
+  background: transparent;
+}
+
+.pagefooter {
+  clear: both;
+}
+
+.eventablerow {background-color: #e0e0e0;}
+.oddtablerow {background-color: #fff;}
+.homepagemodule {border: 1px solid #000033;}
+
+/*-------------------------------------------------*/
+/* Page header rules                               */
+/*-------------------------------------------------*/
+#pageheader_image {
+  height:23px;
+  background: #000033 url(contentheader_caption.gif);
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width:100%;
+}
+
+.pagetitle h1{
+  font-size:18px;
+  font-weight:bold;
+  color:#000033;
+  text-align:left;
+}
+
+.pageheader {
+  color: #fff;
+  background: #FFF url(banner_strip.jpg) repeat-x center;
+  height: 70px;
+}
+
+.brandlogo {
+  background: transparent url(banner_left.jpg) no-repeat left;
+  padding-top: 5px;
+  white-space: nowrap;
+}
+
+#trans_logo {position: absolute; top:28px; left:38px;}
+#trans_logo img{border: none;}
+
+.brandlogo img {
+  display: none;
+}
+
+.welcome {
+  background: transparent url(banner_right.jpg) no-repeat right;
+  padding-top: 15px;
+  padding-right: 40px;
+  white-space: nowrap;
+}
+
+.welcome, .welcome a:visited, .welcome a:link, .welcome a:active {
+  color: #000033;
+  font-weight: bold;
+}
+
+.welcome a:hover {
+  color: #4e6b8b;
+  font-weight: bold;
+}
+
+/*-------------------------------------------------*/
+/* Caption rules                                   */
+/*-------------------------------------------------*/
+.homepagecolumn .homepagemodule caption, .pagebody caption, caption {
+  background: #7e0000 url(center_caption.gif) repeat-x bottom;
+  height:25px;
+  line-height: 25px;
+  color: #fff;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 0px;
+}
+
+caption a:link, caption a:visited, caption a:active {color: #fff;}
+caption a:hover {color: #ccc;}
+
+.homepagecolumn #standings h3, .homepagecolumn #brief_standings h3, #standings h3, #brief_standings h3 {
+  background: #fff;
+  height:25px;
+  line-height: 25px;
+  color: #000033;
+  font-size: 8pt;
+  font-weight: bold;
+  padding: 0px;
+}
+
+/* ----Power Rank----*/
+#options_101 caption {
+    background: #fff url(power_rank_caption.jpg) no-repeat center;
+    height: 66px;
+}
+
+#options_101 caption span{visibility:hidden;}
+
+/*-------------------------------------------------*/
+/* Rules for the tabs.                             */
+/*-------------------------------------------------*/
+#homepagetabs {
+  margin-bottom: 10px;
+  padding: 0px;
+  border-bottom: solid 2px #000033;
+  font-weight: bold;
+  height:20px;
+  line-height: 20px;
+}
+
+#homepagetabs li {
+  border: 1px solid #000033;
+  border-bottom: none;
+  background: #fff;
+  color: #000033;
+}
+
+#homepagetabs li.currenttab {
+  color: #fff;
+  background: #000033 url(contentheader_caption.gif) repeat-x center;
+  text-align:center;
+  border: solid 1px #000033;
+}
+
+/*--------------------------------------------------*/
+/* Rules for the floating menu.                     */
+/*--------------------------------------------------*/
+
+.mainmenuon,  a.mainmenuon:hover, a.mainmenuon:link, a.mainmenuon:visited, a.mainmenuon:active {
+  background: #740000 url(right_caption.jpg) repeat-x center;
+  color: #ddbf78;
+  text-decoration: none;
+  font-size: 9pt;
+}
+
+.mainmenuoff, a.mainmenuoff:hover, a.mainmenuoff:link, a.mainmenuoff:visited, a.mainmenuoff:active {
+  background: #000033 url(contentheader_caption.gif) repeat-x center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 9pt;
+}
+
+.mainmenucurrent, a.mainmenucurrent:link, a.mainmenucurrent:visited {
+  background: #000033 url(contentheader_caption.gif) repeat-x center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 9pt;
+}
+
+/*----------------------------------------------------*/
+/* Rules for the horizontal link bar.                 */
+/*----------------------------------------------------*/
+#contentheader {
+  background: #000033 url(contentheader_caption.gif) repeat-x center;
+  text-align:center;
+  width:100%;
+  height:25px;
+  line-height:25px;
+  color:#fff;
+  white-space: nowrap;
+}
+
+#contentheader a {
+  font-size:11px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+#contentheader a:link,#contentheader a:active,#contentheader a:visited {
+  color:#fff;
+}
+
+#contentheader a:hover {color: #ccc;}
+
+/*------------------------------------------------------*/
+/* Rules for the left side navigation menu              */
+/*------------------------------------------------------*/
+#contentleft {
+  float: left;
+  width:100px;
+  padding-left:0px;
+  padding-top:0px;
+  background-color:#000033;
+  text-align:left;
+  border: none;
+  font-family: verdana, Arial, sans-serif;
+}
+
+.leftnavul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.leftnavul li {
+  list-style: none;
+  background: #000033 url(leftnav.gif) repeat-x center;
+  text-align: left;
+  margin: 0;
+  border-bottom: 1px solid #000033;
+}
+
+.leftnavul a, .leftnavul a:link, .leftnavul a:visited, .leftnavul a:hover, leftnavul a:active {
+  font-size: 10px;
+  text-decoration:none;
+  display:block;
+  color:#fff;
+  height: 17px;
+  line-height: 17px;
+}
+
+.leftnavul a:hover {
+  background: #000033 url(right_caption.jpg) repeat-x center;
+  color:#ddbf78;
+}
+
+.leftnavhead {
+  font-size:10px;
+  font-weight:bold;
+  color:#fff;
+  background: #000033 url(leftnav_head.gif) no-repeat center;
+  text-align:left;
+  padding-left:10px;
+  height:25px;
+  line-height:25px;
+}
+
+li.menulast{border-bottom: solid 1px #000033;}
+
+.contentleftfooter {
+  background:#000033 url(thfooter.jpg) repeat-x right bottom;
+  color:#fff;
+  height:25px;
+  line-height:25px;
+  text-align:center;
+  width:100%;
+}
+
+/*----------------------------------------------------*/
+/* Rules for the main content frame                   */
+/*----------------------------------------------------*/
+
+#contentframe {
+  margin: 0px;
+  padding-left: 105px;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+#contentframe table {
+  width: 98%;
+}
+
+.homepagecolumn .homepagemodule,
+.homepagecolumn #monthly_calendar,
+.report,
+.playoffbracket
+{
+  width:98%;
+  border: 1px solid #000033;
+}
+
+.homepagecolumn .homepagemodule caption {width: 98%;}
+
+table.two_column_layout {width: 98%;}
+td.two_column_layout {width: 50%;}
+
+/*----------------------------------------------*/
+/* Misc asthetic corrections                    */
+/*----------------------------------------------*/
+
+/* ----Playoff brackets-----*/
+
+.newposition td, .newposition th {border-top-color: #000033;}
+.topteam { border-bottom: 2px #000033 solid; }
+.bracket { border-right: 2px #000033 solid; }
+.bottomteam { border-bottom: 2px #000033 solid; border-right: 2px #000033 solid; }
+.playoffbracket {
+  border:none;
+  margin-bottom: 20px;
+}
+
+/* ----Other----*/
+
+#monthly_calendar td, #monthly_calendar th {border: 1px solid #000033;}
+
+h3.warning {
+  padding: 20px 0px;
+  background-color: #fff;
+  font-size: 12pt;
+}
+
+#options_18 form > table {border:none;}
+#options_98 form > table {border:none;}
+
+#kickoff_countdown h3, #draft_countdown h3, #auction_countdown h3, #calendar_countdown h3 {
+  color: #000033;
+  background-color: transparent;
+}
+
+.homepagemessage {border: 1px solid #000033;}
+
+#contentframe #article table, #options_73 .articlepicturetable {width: auto;}
+#article td {padding: 5px;}
+
+#options_20 table table {
+   width: auto;
+}

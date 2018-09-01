@@ -1,0 +1,80 @@
+body { font-size: 8pt; font-family: Verdana; color: #000000; border: 0px; margin-top: 2em;
+}
+caption { font-size: 120%; font-weight: bold; }
+th { color: #FFFFFF; font-style: italic; font-weight: bold;
+   background-color: #8B0000;
+}
+form { margin-top: 0px; margin-bottom: 0px; }
+.form_buttons { margin-left: auto; margin-right: auto; text-align: center; }
+td.points, td.week, td.salary, td.contractyear, td.drafted, td.year, td.rank { text-align: right; }
+.report, .playoffbracket, .homepagemessage { margin-bottom: 1em; }
+.eventablerow {
+   background-color: #acacac;
+}
+.oddtablerow {
+   background-color: #dedede;
+}
+.module_expand { font-family: monospace; float: right; visibility: visible; cursor: pointer; }
+.homepagecolumn #standings h3, .homepagecolumn #brief_standings h3, .homepagecolumn .homepagemodule caption { padding-top: 5px; padding-bottom: 5px; color: #FFFFFF;
+background-color: #8B0000;
+}
+.homepagecolumn .homepagemodule h3 { margin: -1px; } 
+.homepagecolumn .homepagemodule, .homepagecolumn .homepagemodule caption { width: 95%; }
+body {
+  margin:0px;
+  margin-top: 24px;
+  padding: 0px;
+  background: #fff;
+  color: #000033;
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+}
+th {
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  background: #000033 url(right_caption_selected.gif) repeat-x;
+  height: 17px;
+  line-height: 17px;
+}
+.eventablerow {background-color: #e0e0e0;}
+.oddtablerow {background-color: #fff;}
+.homepagemodule {border: 1px solid #000033;}
+/*-------------------------------------------------*/
+/* Caption rules                                   */
+/*-------------------------------------------------*/
+.homepagecolumn .homepagemodule caption, .pagebody caption, caption {
+  background: #7e0000 url(center_caption.gif) repeat-x bottom;
+  height:25px;
+  line-height: 25px;
+  color: #fff;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 0px;
+}
+
+caption a:link, caption a:visited, caption a:active {color: #fff;}
+caption a:hover {color: #ccc;}
+
+#contentframe {
+  margin: 0px;
+  padding-left: 105px;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+#contentframe table {
+  width: 98%;
+}
+
+.homepagecolumn .homepagemodule,
+.homepagecolumn #monthly_calendar,
+.report,
+.playoffbracket
+{
+  width:98%;
+  border: 1px solid #000033;
+}
+
+.homepagecolumn .homepagemodule caption {width: 98%;}
+
