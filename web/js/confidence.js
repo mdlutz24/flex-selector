@@ -52,12 +52,12 @@ if (typeof franchise_id != 'undefined' &&
           if ($awayradio.is(':checked')) {
             $awayteam.data('selected', true);
             $awayteam.addClass('selected');
-            $matches.push($awayteam.clone());
+            $matches.push($awayteam.clone(true));
           }
           if ($homeradio.is(':checked')) {
             $hometeam.data('selected', true);
             $hometeam.addClass('selected');
-            $matches.push($hometeam.clone());
+            $matches.push($hometeam.clone(true));
           }
           $hometeams.append($hometeam);
           $awayteams.append($awayteam);
@@ -105,7 +105,9 @@ if (typeof franchise_id != 'undefined' &&
       });
 
       $board.find('.hometeam.pick, .awayteam.pick').draggable({
-        helper: 'clone',
+        helper: function(a,b){
+          return $(this).clone(true);
+          },
         cancel: '.selected',
         revert: 'invalid',
         connectToSortable: '.picks',
