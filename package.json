@@ -1,0 +1,19 @@
+{
+  "name": "fles",
+  "version": "0.1.0",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "node-sass": "*",
+    "grunt": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-postcss": "*",
+    "grunt-sass": "^2.1.0",
+    "grunt-shell": "*",
+    "grunt-timer": "*"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

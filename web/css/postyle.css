@@ -4,7 +4,8 @@ padding: 0 10px;
 
 table.homepagemodule, table.report{
 border: 1px solid #666;
-box-shadow: 1px 1px 5px #666;
+-webkit-box-shadow: 1px 1px 5px #666;
+        box-shadow: 1px 1px 5px #666;
 }
 
 .homepagecolumn #standings h3, 
@@ -31,7 +32,8 @@ border-radius: 0 5px 5px 0;
 border: 1px solid #333;
 border-left: 0px;
 margin-right: 20px;
-box-shadow: 0 0 5px #666;
+-webkit-box-shadow: 0 0 5px #666;
+        box-shadow: 0 0 5px #666;
 }
 
 #withmenus.withleft{
