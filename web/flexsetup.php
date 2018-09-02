@@ -121,19 +121,19 @@ function loadRosters($week, $weeklyResults){
 }
 
 function loadTeams(){
-    getDB()->query("TRUNCATE TABLE teams");
-    global $currentDate;
-//	$tlog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/teams", "a");
+    $db = getDB();
     $league=getData('league', ['L' => L_ID]);
     $franchises=$league->franchises[0]->franchise;
     foreach ($franchises as $franchise) {
         $id=$franchise['id'];
-        $name=getDB()->escape_string($franchise['name']);
-        $query="INSERT INTO teams (id, name) VALUES ('$id', '$name')";
-//		fwrite($tlog,"$query\n");
-        getDB()->query($query);
+        $name=strip_tags(getDB()->escape_string($franchise['name']));
+
+        if ($db->query("SELECT * FROM teams WHERE id=$id", [':id' => $id])->num_rows) {
+            $db->query("UPDATE teams SET name='$name' WHERE id=$id")
+        } else {
+            $db->query("INSERT INTO teams (id, name) VALUES ('$id', '$name')");
+        }
     }
-//	fclose($tlog);
 }
 
 function checkValid($team_id, $player_id){
@@ -199,7 +199,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
         loadRosters($week, $weeklyResults);
         loadSchedule($week, $schedule);
         loadTeams();
- 	    loadPlayers();
+ //	    loadPlayers();
     }
 
 
@@ -230,9 +230,6 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 		background-image:none;
 	}
 </style>
-    <script type="text/javascript" src="http://www9.myfantasyleague.com/mootools-core-1.3.1-full-compat-yc.js"></script>
-    <script type="text/javascript" src="http://www9.myfantasyleague.com/mootools-more-1.3.1.1.js"></script>
-    <script type="text/javascript" src="http://www9.myfantasyleague.com/mfl_common.js"></script>
 
 <script type="text/javascript">
 	window.onload=function(){
@@ -326,7 +323,7 @@ $trclass='eventablerow';
 $query="SELECT * FROM teams";
 $teams=getDB()->query($query) ;
 while ($team=$teams->fetch_assoc()) {
-	echo "<tr class='$trclass'><td colspan='2'><a href='http://football2.myfantasyleague.com/".YEAR."/options?L=".L_ID."&F=".str_pad($team['id'], 4, "0", STR_PAD_LEFT)."&O=01' target='_top'>".$team['name']."</a></td>";
+	echo "<tr class='$trclass'><td colspan='2'><a href='http://".HOST."/".YEAR."/options?L=".L_ID."&F=".str_pad($team['id'], 4, "0", STR_PAD_LEFT)."&O=01' target='_top'>".$team['name']."</a></td>";
 	$query="SELECT players.name, player_id, carry_over
 					FROM flex, players
 					WHERE week='$week' AND player_id=players.id AND team_id='";
