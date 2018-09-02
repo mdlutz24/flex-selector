@@ -59,7 +59,7 @@
 
 @media only screen and (max-width: 62.5em) {
   /* line 52, web/scss/style.scss */
-  #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8 .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
+  #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
