@@ -86,7 +86,7 @@ if (typeof franchise_id != 'undefined' &&
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
           $matches[i].children('.confidence').html(rank.toString());
-          if (rank > 12) {
+          if (rank == 12) {
             $matches[i].addClass('locked');
           } else {
             $matches[i].addClass('unlocked');
