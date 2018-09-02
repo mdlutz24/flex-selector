@@ -148,6 +148,7 @@ if (typeof franchise_id != 'undefined' &&
             if (ui.helper.hasClass('oselected')) {
               $('.picks .'+ui.helper.data('opponent')).addClass('removing');
             }
+            ui.helper.removeClass('selected oselected game-picked');
           },
           stop: function(event, ui){
             $('.picks .'+ui.helper.data('opponent')).removeClass('removing');
