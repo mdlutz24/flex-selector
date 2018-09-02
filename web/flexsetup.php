@@ -130,7 +130,7 @@ function loadTeams(){
         $name=strip_tags(getDB()->escape_string($franchise['name']));
 
         if ($db->query("SELECT * FROM teams WHERE id=$id", [':id' => $id])->num_rows) {
-            $db->query("UPDATE teams SET name='$name' WHERE id=$id")
+            $db->query("UPDATE teams SET name='$name' WHERE id=$id");
         } else {
             $db->query("INSERT INTO teams (id, name) VALUES ('$id', '$name')");
         }
