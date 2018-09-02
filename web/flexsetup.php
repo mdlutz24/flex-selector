@@ -233,16 +233,17 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	window.onload=function(){
-	  window.parent.postMessage(document.body.scrollHeight, 'http://www71.myfantasyleague.com');
+	//window.onload=function(){
+	 // window.parent.postMessage(document.body.scrollHeight, 'http://www71.myfantasyleague.com');
 	//	alert('iframewrap'+document.getElementById('wrapper').clientHeight);
 	//	alert('parent'+window.top.document);//=document.body.clientHeight+'px');
-	}
+	//}
     window.addEventListener('message', function(event) {
 
       // IMPORTANT: Check the origin of the data!
       if (~event.origin.indexOf('http://www71.myfantasyleague.com')) {
         // The data has been sent from your site
+
         window.parent.postMessage($('#flex-table .report').height(), 'http://www71.myfantasyleague.com');
         // The data sent with postMessage is stored in event.data
         console.log(event.data);
@@ -252,6 +253,9 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
         return;
       }
     });
+    $('#flex-table .report').height().on('load', function(){
+      window.parent.postMessage($('#flex-table .report').height(), 'http://www71.myfantasyleague.com');
+    })
 </script>
 
 </head>
