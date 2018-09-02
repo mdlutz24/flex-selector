@@ -1,8 +1,8 @@
 <?php
 session_start();
-define('YEAR', 2013);
-define('L_ID', 14936);
-define('SEASON_START', '2013-09-03 04:00:00');
+define('YEAR', 2018);
+define('L_ID', 46324);
+define('SEASON_START', '2018-09-04 04:00:00');
 
 //data varibles
 $FLEX_POSITIONS=array('RB', 'WR', 'TE');
@@ -182,7 +182,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
         loadRosters($week, $weeklyResults);
         loadSchedule($week, $schedule);
         loadTeams();
-//	loadPlayers();
+ 	    loadPlayers();
     }
 
 
