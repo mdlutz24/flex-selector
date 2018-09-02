@@ -245,7 +245,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 echo "<form name='flexform' method='get' action=''>";
 echo "<input type='hidden' name='true_id' value='$true_id' />";
 echo "<input type='hidden' name='week' value='$week' />";
-echo "<div class='pagebody homepagecolumn'><table class='homepagemodule report' align='center' style='position:absolute;top:0px;width:100%;'><span><caption>Select Your Flex Player</caption></span><tbody><tr><th colspan='4'>";
+echo "<div class='pagebody homepagecolumn'><table class='homepagemodule report' align='center' style='position:absolute;top:0;left:0;width:100%;'><span><caption>Select Your Flex Player</caption></span><tbody><tr><th colspan='4'>";
 echo "Current Flex Player: ";
 $query="SELECT player_id, players.name, schedule.date curr_date FROM flex, players, schedule WHERE flex.week='$week' AND flex.team_id='$id' AND players.id=flex.player_id AND schedule.team_id=players.team AND schedule.week='$week' LIMIT 1";
 $result=getDB()->query($query) ;
