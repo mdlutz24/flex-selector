@@ -96,7 +96,7 @@
   .hometeams, .awayteams {
 
   }
-  @media all an (max-width:62.500em) {
+  @media all and (max-width: 62.500em) {
     .pick {
       font-size: 8px;
       .match {
