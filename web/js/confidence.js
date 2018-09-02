@@ -28,7 +28,7 @@ if (typeof franchise_id != 'undefined' &&
         var $picks = $('<div class="picks"></div>');
         var $matches = [];
 
-        $rows.each(function(){
+        $rows.each(function () {
           if (!$(this).hasClass('oddtablerow') && !$(this).hasClass('eventablerow')) return;
           var $hometd = $(this).children('td:first-child');
           var $homeradio = $hometd.children('input');
@@ -74,8 +74,11 @@ if (typeof franchise_id != 'undefined' &&
           $hometeams.append($hometeam);
           $awayteams.append($awayteam);
 
+        });
+
+        $matches.sort(function (a, b) {
+          return a.data('conf') - b.data('conf')
         })
-        $matches.sort(function(a,b){return a.data('conf')-b.data('conf')})
         for ($match in $matches) {
           $picks.append($match);
         }
@@ -85,59 +88,58 @@ if (typeof franchise_id != 'undefined' &&
         $board.append($picks);
         $form.after($board);
 
-      }
-      $picks.sortable({
-        receive: function(event, ui) {
-          var $item = ui.item;
-          var value = $item.data('value');
-          var name = $item.data('name');
-          var opponent = $item.data('opponent');
-          var otype = $item.data('otype');
-          var type = $item.data('type');
-          $('.picks .' + opponent).remove();
-          $('.' + type + 'teams .' + value).addClass('selected');
-          $('.' + otype + 'teams .' + opponent).removeClass('selected');
-          $('input[value=' + value +']').prop('checked', true);
+
+        $picks.sortable({
+          receive: function (event, ui) {
+            var $item = ui.item;
+            var value = $item.data('value');
+            var name = $item.data('name');
+            var opponent = $item.data('opponent');
+            var otype = $item.data('otype');
+            var type = $item.data('type');
+            $('.picks .' + opponent).remove();
+            $('.' + type + 'teams .' + value).addClass('selected');
+            $('.' + otype + 'teams .' + opponent).removeClass('selected');
+            $('input[value=' + value + ']').prop('checked', true);
 
 
-        },
-        update: function (event,ui) {
-          var $form = $('form input[name=TYPE]').parent();
-          var $table = $form.find('table');
-          $helper = ui.helper;
-          var conf = $table.find('select').val('-').length;
-          var $picklist = $(this).children('.pick');
-          $picklist.each(function(){
-            $(this).data('conf', conf)
-            $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
-            conf--;
-          });
-
-
-
-        }
-      });
-
-      $board.find('.hometeam.pick, .awayteam.pick').draggable({
-        helper: function(a,b){
-          var $helper = $(this).clone();
-          $helper.data('name', $(this).data('name'));
-          $helper.data('otype', $(this).data('otype'));
-          $helper.data('type', $(this).data('type'));
-          $helper.data('value', $(this).data('value'));
-          $helper.data('opponent', $(this).data('opponent'));
-          $helper.data('selectname', $(this).data('selectname'));
-          return $helper;
           },
-        cancel: '.selected',
-        revert: 'invalid',
-        connectToSortable: '.picks',
-        start: function(event, ui) {
-          ui.helper.width($('.hometeam').width());
-        }
+          update: function (event, ui) {
+            var $form = $('form input[name=TYPE]').parent();
+            var $table = $form.find('table');
+            $helper = ui.helper;
+            var conf = $table.find('select').val('-').length;
+            var $picklist = $(this).children('.pick');
+            $picklist.each(function () {
+              $(this).data('conf', conf)
+              $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
+              conf--;
+            });
 
-      });
 
+          }
+        });
+
+        $board.find('.hometeam.pick, .awayteam.pick').draggable({
+          helper: function (a, b) {
+            var $helper = $(this).clone();
+            $helper.data('name', $(this).data('name'));
+            $helper.data('otype', $(this).data('otype'));
+            $helper.data('type', $(this).data('type'));
+            $helper.data('value', $(this).data('value'));
+            $helper.data('opponent', $(this).data('opponent'));
+            $helper.data('selectname', $(this).data('selectname'));
+            return $helper;
+          },
+          cancel: '.selected',
+          revert: 'invalid',
+          connectToSortable: '.picks',
+          start: function (event, ui) {
+            ui.helper.width($('.hometeam').width());
+          }
+
+        });
+      }
     });
   })(jQuery, window, document, franchise_id, league_id, liveScoringWeek, thisProgram);
 }
