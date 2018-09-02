@@ -110,21 +110,26 @@
   background: linear-gradient(to bottom, #400406 0%, #7A4419 51%);
 }
 
+/* line 83, web/scss/style.scss */
+.board .picks .locked {
+  background-image: url(http://mfl.hazelknot.com/images/movegrey.svg);
+}
+
 @media only screen and (max-width: 62.5em) {
-  /* line 93, web/scss/style.scss */
+  /* line 96, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
 }
 
-/* line 99, web/scss/style.scss */
+/* line 102, web/scss/style.scss */
 input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
 }
 
-/* line 104, web/scss/style.scss */
+/* line 107, web/scss/style.scss */
 .confidence-table {
   display: none;
 }
