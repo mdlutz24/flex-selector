@@ -198,6 +198,9 @@ if (typeof franchise_id != 'undefined' &&
               var team = match.team[j];
               var teamid = team.id
               var spread = team.spread
+              if(franchise_id == "0001") {
+                $(".pick." + team.id + " .match").html($(".pick." + team.id + " .match").html() + "(" + spread + ")");
+              }
               $(".pick." + team.id+ " .kickoff").html("Kickoff: " + kickoff.toDateString() + " " +kickoff.toLocaleTimeString())
             }
 
