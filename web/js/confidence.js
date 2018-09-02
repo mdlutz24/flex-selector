@@ -86,7 +86,7 @@ if (typeof franchise_id != 'undefined' &&
         });
 
         $matches.sort(function (a, b) {
-          return a.data('conf') - b.data('conf')
+          return b.data('conf') - a.data('conf')
         });
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
