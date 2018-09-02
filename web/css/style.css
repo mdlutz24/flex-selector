@@ -60,22 +60,23 @@
 
 /* line 45, web/scss/style.scss */
 .board .pick.oselected {
-  background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #3f5737));
-  background: linear-gradient(to bottom, #1b2617 0%, #3f5737 51%);
-}
-
-/* line 48, web/scss/style.scss */
-.board .pick.selected {
   background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #12190f));
   background: linear-gradient(to bottom, #1b2617 0%, #12190f 51%);
 }
 
-/* line 50, web/scss/style.scss */
+/* line 48, web/scss/style.scss */
+.board .pick.selected {
+  background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #3f5737));
+  background: linear-gradient(to bottom, #1b2617 0%, #3f5737 51%);
+  cursor: auto;
+}
+
+/* line 51, web/scss/style.scss */
 .board .pick.selected .confidence {
   background-image: url(http://mfl.hazelknot.com/images/movegrey.svg);
 }
 
-/* line 55, web/scss/style.scss */
+/* line 56, web/scss/style.scss */
 .board .hometeams {
   width: 25%;
   float: left;
@@ -83,7 +84,7 @@
   margin-right: -30%;
 }
 
-/* line 62, web/scss/style.scss */
+/* line 63, web/scss/style.scss */
 .board .awayteams {
   width: 25%;
   float: left;
@@ -91,7 +92,7 @@
   margin-right: -60%;
 }
 
-/* line 69, web/scss/style.scss */
+/* line 70, web/scss/style.scss */
 .board .picks {
   width: 25%;
   float: left;
@@ -102,7 +103,7 @@
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 86, web/scss/style.scss */
+  /* line 87, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;

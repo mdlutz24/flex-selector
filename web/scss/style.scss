@@ -43,10 +43,11 @@
     }
 
     &.oselected {
-      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+      background: linear-gradient(to bottom,#1b2617 0%,darken(#3f5737, 20%) 51%);
     }
     &.selected {
-      background: linear-gradient(to bottom,#1b2617 0%,darken(#3f5737, 20%) 51%);
+      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+      cursor: auto;
       .confidence {
         background-image:url(http://mfl.hazelknot.com/images/movegrey.svg);
       }
