@@ -131,7 +131,8 @@ if (typeof franchise_id != 'undefined' &&
             });
 
 
-          }
+          },
+          cancel: ".locked"
         });
 
         $board.find('.hometeam.pick, .awayteam.pick').draggable({
