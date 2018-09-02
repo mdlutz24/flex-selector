@@ -20,7 +20,7 @@
       padding-left: 40px;
       float: left;
       height: 100%;
-      background: #0000 url(http://mfl.hazelknot.com/images/movewhite.svg) 3px center/auto 80% no-repeat;
+      background: transparent url(http://mfl.hazelknot.com/images/movewhite.svg) 3px center/auto 80% no-repeat;
       width: 70px;
       line-height: 40px;
       font-size: 20px;
@@ -43,11 +43,13 @@
     }
 
     &.oselected {
-      background: linear-gradient(to bottom,#1b2617 0%,#c6c4b1 51%);
-      color: #0d140b;
+      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
     }
     &.selected {
-      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+      background: linear-gradient(to bottom,#1b2617 0%,darken(#3f5737, 20%) 51%);
+      .confidence {
+        background-image:url(http://mfl.hazelknot.com/images/movegrey.svg);
+      }
     }
   }
   .hometeams {
@@ -74,10 +76,7 @@
   }
 
   .hometeams, .awayteams {
-    .pick.selected {
-      border-color: grey;
-      cursor: auto;
-    }
+
   }
 
 
