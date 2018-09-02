@@ -135,7 +135,8 @@ if (typeof franchise_id != 'undefined' &&
 
 
           },
-          cancel: ".locked"
+          cancel: ".locked",
+          items: "> .locked:not()"
         });
 
         $board.find('.hometeams .pick, .awayteams .pick').draggable({
