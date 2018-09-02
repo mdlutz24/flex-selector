@@ -14,7 +14,7 @@
   border: 1px solid black;
   width: 100%;
   overflow: hidden;
-  padding: 5px;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: -webkit-grab;
@@ -33,7 +33,7 @@
   padding-left: 40px;
   float: left;
   height: 100%;
-  background: transparent url("http://mfl.hazelknot.com/images/movewhite.svg") left center/auto 100% no-repeat;
+  background: transparent url("http://mfl.hazelknot.com/images/movewhite.svg") 20% center/auto 80% no-repeat;
 }
 
 /* line 25, web/scss/style.scss */
