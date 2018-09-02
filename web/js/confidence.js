@@ -100,8 +100,8 @@ if (typeof franchise_id != 'undefined' &&
             var otype = $item.data('otype');
             var type = $item.data('type');
             $('.picks .' + opponent).remove();
-            $('.' + type + 'teams .' + value).addClass('selected');
-            $('.' + otype + 'teams .' + opponent).removeClass('selected');
+            $('.' + type + 'teams .' + value).removeClass('oselected').addClass('selected game-picked');
+            $('.' + otype + 'teams .' + opponent).removeClass('selected').addClass('oselected game-picked');
             $('input[value=' + value + ']').prop('checked', true);
 
 

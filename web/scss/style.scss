@@ -41,6 +41,14 @@
     .kickoff {
       font-size: 10px;
     }
+
+    &.oselected {
+      background: linear-gradient(to bottom,#1b2617 0%,#c6c4b1 51%);
+      color: #0d140b;
+    }
+    &.selected {
+      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+    }
   }
   .hometeams {
     width: 25%;
