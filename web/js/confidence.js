@@ -104,7 +104,7 @@ if (typeof franchise_id != 'undefined' &&
         }
 
 
-        $picks.sortable({
+        $picks.fixedsortable({
           receive: function (event, ui) {
             var $item = ui.item;
             var value = $item.data('value');
@@ -140,8 +140,7 @@ if (typeof franchise_id != 'undefined' &&
           change: function(event, ui) {
             $(this);
           },
-          cancel: ".locked",
-          items: "> .unlocked"
+          fixed: ".locked"
         });
 
         $board.find('.hometeams .pick, .awayteams .pick').draggable({
