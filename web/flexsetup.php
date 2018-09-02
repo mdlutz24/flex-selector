@@ -3,6 +3,8 @@ session_start();
 define('YEAR', 2018);
 define('L_ID', 46324);
 define('SEASON_START', '2018-09-04 04:00:00');
+define('HOST', 'www71.myfantasyleague.com/');
+define('PROTOCOL', 'https://');
 
 //data varibles
 $FLEX_POSITIONS=array('RB', 'WR', 'TE');
@@ -12,7 +14,16 @@ $vpick='FFFFFF';
 $icarry='FF5555';
 $vcarry='55ff55';
 
+function getData($type, $options = [], $command = 'export') {
+    $args = '';
+    foreach($options as $key => $value) {
+        $value = urlencode($value);
+        $args .= "&$key=$value";
+    }
 
+    $url = PROTOCOL . HOST . '/' . YEAR . '/' . $command . "?TYPE=" . $type . $args;
+    return simplexml_load_file($url);
+}
 
 function getDB() {
     static $db = FALSE;
@@ -53,7 +64,7 @@ function loadPlayers(){
     global $currentDate;
    // $plog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/players", "a");
 
-    $players=simplexml_load_file("http://football.myfantasyleague.com/".YEAR."/export?TYPE=players");
+    $players=getData('players');
     $players=$players->player;
     foreach($players as $player){
         foreach ($player->attributes() as $key => $value)
@@ -113,7 +124,7 @@ function loadTeams(){
     getDB()->query("TRUNCATE TABLE teams");
     global $currentDate;
 //	$tlog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/teams", "a");
-    $league=simplexml_load_file("http://football2.myfantasyleague.com/".YEAR."/export?TYPE=league&L=".L_ID);
+    $league=getData('league', ['L' => L_ID]);
     $franchises=$league->franchises[0]->franchise;
     foreach ($franchises as $franchise) {
         $id=$franchise['id'];
@@ -177,10 +188,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 } else {
     $result_url = "http://football.myfantasyleague.com/".YEAR."/export?TYPE=weeklyResults&L=".L_ID."&W=$week";
   //  print($result_url);
-    $weeklyResults=simplexml_load_file($result_url);
+    $weeklyResults=getData('weeklyResults', ['L' => L_ID, 'W'=> $week]);
  /*   ?><pre><? print_r($weeklyResults); ?></pre><? die();*/
-    $schedule=simplexml_load_file("http://football.myfantasyleague.com/".YEAR."/export?TYPE=nflSchedule&L=".L_ID."&W=$week");
 
+    $schedule = getData('nflSchedule', ['L' => L_ID, 'W' => $week]);
     $query="SELECT * FROM roster_lock WHERE team_id='$id'";
     $result=getDB()->query($query) ;
     if ($result->num_rows==0){
