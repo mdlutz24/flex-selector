@@ -122,6 +122,7 @@ function loadRosters($week, $weeklyResults){
 
 function loadTeams(){
     $db = getDB();
+    $db->query("TRUNCATE table teams");
     $league=getData('league', ['L' => L_ID]);
     $franchises=$league->franchises[0]->franchise;
     foreach ($franchises as $franchise) {
