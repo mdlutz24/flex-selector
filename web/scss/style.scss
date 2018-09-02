@@ -22,6 +22,18 @@
       height: 100%;
       background: transparent url('http://mfl.hazelknot.com/images/movewhite.svg') left center/auto 100% no-repeat;
     }
+    .match {
+      font-size:10px;
+      .teamname {
+        font-size: 10px;
+      }
+      .oteamname {
+        font-size: 10px;
+      }
+    }
+    .kickoff {
+      font-size: 10px;
+    }
   }
   .hometeams {
     width: 25%;
