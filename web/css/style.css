@@ -102,8 +102,14 @@
   min-height: 30px;
 }
 
+/* line 77, web/scss/style.scss */
+.board .picks .removing {
+  background: -webkit-gradient(linear, left top, left bottom, from(#400406), color-stop(51%, #7A4419));
+  background: linear-gradient(to bottom, #400406 0%, #7A4419 51%);
+}
+
 @media only screen and (max-width: 62.5em) {
-  /* line 87, web/scss/style.scss */
+  /* line 91, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;

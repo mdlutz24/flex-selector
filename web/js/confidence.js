@@ -139,6 +139,12 @@ if (typeof franchise_id != 'undefined' &&
           connectToSortable: '.picks',
           start: function (event, ui) {
             ui.helper.width($('.hometeam').width());
+            if (ui.helper.hasClass('oselected')) {
+              $('.picks .'+ui.helper.data('opponent')).addClass('removing');
+            }
+          },
+          stop: function(event, ui){
+            $('.picks .'+ui.helper.data('opponent')).removeClass('removing');
           }
 
         });
