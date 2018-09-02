@@ -149,7 +149,7 @@ if (typeof franchise_id != 'undefined' &&
             });
             $helper.remove();
           },
-          items: ':not(.static)',
+          items: '> :not(.static)',
           start: function(){
             $('.static', this).each(function(){
               var $this = $(this);
