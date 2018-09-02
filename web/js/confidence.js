@@ -21,6 +21,7 @@ if (typeof franchise_id != 'undefined' &&
         var $form = $('form input[name=TYPE]').parent();
         if (typeof $form == 'undefined') return;
         var $table = $form.find('table');
+        $table.addClass('confidence-table');
         if (typeof $table == 'undefined') return;
         var $rows = $table.find('tr');
         var $hometeams = $('<div class="hometeams"></div>');
