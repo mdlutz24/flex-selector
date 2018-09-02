@@ -37,7 +37,7 @@ if (typeof franchise_id != 'undefined' &&
           var $awayradio = $awaytd.children('input');
 
           var $hometeam = $("<div class='hometeam home pick'></div>");
-          $hometeam.html($hometd.children('label').text());
+          $hometeam.html("<div class='match'><span class='teamname'>" + $hometd.children('label').text()+ "</span><span class='oteamname'>vs " + $awaytd.children('label').text() + "</span></div><div class='kickoff'></div>");
           $hometeam.data('name', $homeradio.attr('name'));
           $hometeam.data('value', $homeradio.val());
           $hometeam.data('opponent', $awayradio.val());
@@ -47,7 +47,7 @@ if (typeof franchise_id != 'undefined' &&
           $hometeam.addClass($homeradio.val());
 
           var $awayteam = $("<div class='awayteam away pick'></div>");
-          $awayteam.html($awaytd.children('label').text());
+          $awayteam.html("<div class='match'><span class='teamname'>" + $awaytd.children('label').text()+ "</span><span class='oteamname'>@ " + $hometd.children('label').text() + "</span></div><div class='kickoff'></div>");
           $awayteam.data('name', $awayradio.attr('name'));
           $awayteam.data('value', $awayradio.val());
           $awayteam.data('opponent', $homeradio.val());
@@ -139,6 +139,14 @@ if (typeof franchise_id != 'undefined' &&
           }
 
         });
+
+        var nflSchedule;
+        var week = $form.children('input[name=WEEK]').val();
+        $.getJSON("https://www71.myfantasyleague.com/2018/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
+          for($match in data.nflSchedule.matchup) {
+
+          }
+        })
       }
     });
   })(jQuery, window, document, franchise_id, league_id, liveScoringWeek, thisProgram);
