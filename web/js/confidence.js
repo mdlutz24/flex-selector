@@ -137,6 +137,9 @@ if (typeof franchise_id != 'undefined' &&
 
 
           },
+          change: function(event, ui) {
+            $(this);
+          },
           cancel: ".locked",
           items: "> .unlocked"
         });
