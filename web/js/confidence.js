@@ -80,8 +80,8 @@ if (typeof franchise_id != 'undefined' &&
         $matches.sort(function (a, b) {
           return a.data('conf') - b.data('conf')
         })
-        for ($match in $matches) {
-          $picks.append($match);
+        for (var i = 0; i < $matches.length; i++ ) {
+          $picks.append($matches[i]);
         }
         var $board = $("<div class='board'></div>");
         $picks.height(count * 45);
