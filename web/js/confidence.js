@@ -143,9 +143,11 @@ if (typeof franchise_id != 'undefined' &&
         var nflSchedule;
         var week = $form.children('input[name=WEEK]').val();
         $.getJSON("http://www71.myfantasyleague.com/2018/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
-          for(match in data.nflSchedule.matchup) {
+          for(var i = 0; i< data.nflSchedule.matchup.length; i++) {
+            var match = data.nflSchedule.matchup[i];
             var kickoff = new Date(match.kickoff * 1000)
-            for (team in match.team) {
+            for (var j = 0; j < match.team.length; j++) {
+              var team = match.team[j];
               var teamid = team.id
               var spread = team.spread
               $(".pick." + team.id+ " .kickoff").html(kickoff.toDateString())
