@@ -234,9 +234,24 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 
 <script type="text/javascript">
 	window.onload=function(){
+	  window.parent.postMessage(document.body.scrollHeight, 'http://www71.myfantasyleague.com');
 	//	alert('iframewrap'+document.getElementById('wrapper').clientHeight);
 	//	alert('parent'+window.top.document);//=document.body.clientHeight+'px');
 	}
+    window.addEventListener('message', function(event) {
+
+      // IMPORTANT: Check the origin of the data!
+      if (~event.origin.indexOf('http://www71.myfantasyleague.com')) {
+        // The data has been sent from your site
+        window.parent.postMessage(document.body.scrollHeight, 'http://www71.myfantasyleague.com');
+        // The data sent with postMessage is stored in event.data
+        console.log(event.data);
+      } else {
+        // The data hasn't been sent from your site!
+        // Be careful! Do not use it.
+        return;
+      }
+    });
 </script>
 
 </head>
