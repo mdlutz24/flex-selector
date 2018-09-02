@@ -101,10 +101,13 @@
       font-size: 8px;
       .match {
         font-size: 10px;
+        .oteamname {
+          display: none;
+        }
       }
       .confidence {
-        padding:0;
-        background-image: none;
+        padding:0 !important;
+        background-image: none !important;
         font-size: 13px;
       }
     }

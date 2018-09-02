@@ -129,29 +129,33 @@
   .board .pick .match {
     font-size: 10px;
   }
-  /* line 105, web/scss/style.scss */
+  /* line 104, web/scss/style.scss */
+  .board .pick .match .oteamname {
+    display: none;
+  }
+  /* line 108, web/scss/style.scss */
   .board .pick .confidence {
-    padding: 0;
-    background-image: none;
+    padding: 0 !important;
+    background-image: none !important;
     font-size: 13px;
   }
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 116, web/scss/style.scss */
+  /* line 119, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
 }
 
-/* line 122, web/scss/style.scss */
+/* line 125, web/scss/style.scss */
 input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
 }
 
-/* line 127, web/scss/style.scss */
+/* line 130, web/scss/style.scss */
 .confidence-table {
   display: none;
 }
