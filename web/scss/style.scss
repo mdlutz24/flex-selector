@@ -98,17 +98,21 @@
   }
   @media all and (max-width: 62.500em) {
     .pick {
-      font-size: 8px;
+
       .match {
-        font-size: 10px;
+        font-size: 12px;
         .oteamname {
           display: none;
         }
       }
+      .kickoff {
+        display: none;
+      }
       .confidence {
-        padding:0 !important;
+        padding:5px !important;
         background-image: none !important;
-        font-size: 13px;
+        font-size: 14px;
+        width: auto !important;
       }
     }
   }
