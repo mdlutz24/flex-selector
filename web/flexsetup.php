@@ -243,7 +243,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
       // IMPORTANT: Check the origin of the data!
       if (~event.origin.indexOf('http://www71.myfantasyleague.com')) {
         // The data has been sent from your site
-        window.parent.postMessage(document.body.scrollHeight, 'http://www71.myfantasyleague.com');
+        window.parent.postMessage(document.documentElement.scrollHeight, 'http://www71.myfantasyleague.com');
         // The data sent with postMessage is stored in event.data
         console.log(event.data);
       } else {
