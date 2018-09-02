@@ -16,11 +16,18 @@ $vcarry='55ff55';
 $host='localhost';
 $user='mfl';
 $pass='AyOkUPmRwM3yvoZs';
-$connect = mysql_connect($host, $user, $pass) or die("SQL error");
-mysql_select_db("mfl") or die (mysql_error());
+$db = new mysqli($host, $user, $pass, 'mfl');
+
+function getDB() {
+    static $db = FALSE;
+    if (!$db) {
+        $db = new mysqli($host, $user, $pass, 'mfl');
+    }
+    return $db;
+}
 
 function loadSchedule($week, $schedule){
-    mysql_query("DELETE FROM schedule WHERE week='$week'");
+    getDB()->query("DELETE FROM schedule WHERE week='$week'");
     global $currentDate;
    // $slog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/schedule", "a");
   //  print_r($schedule);
@@ -35,7 +42,7 @@ function loadSchedule($week, $schedule){
             $query="INSERT INTO schedule (team_id, date, week) VALUES ('$id', '$date', '$week')";
             fwrite($slog,"$query\n");
  //           echo $query."<br />";
-            mysql_query($query) or die(mysql_error());
+            getDB()->query($query);
         }
     }
  //   fclose($slog);
@@ -43,7 +50,7 @@ function loadSchedule($week, $schedule){
 
 
 function loadPlayers(){
-    mysql_query("TRUNCATE TABLE players");
+    getDB()->query("TRUNCATE TABLE players");
     global $currentDate;
    // $plog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/players", "a");
 
@@ -51,19 +58,19 @@ function loadPlayers(){
     $players=$players->player;
     foreach($players as $player){
         foreach ($player->attributes() as $key => $value)
-            $arrays[$key]=mysql_real_escape_string($value);
+            $arrays[$key]=getDB()->escape_string($value);
 
         extract($arrays);
         $query="INSERT INTO players (id, name, position, team) VALUES ('$id', '$name', '$position', '$team')";
    //     echo "Adding $id, $name, $position, $team<br />";
-        mysql_query($query) or die(mysql_error());
+        getDB()->query($query));
     }
    // fclose($plog);
 }
 
 function loadRosters($week, $weeklyResults){
     global $currentDate;
-    mysql_query("DELETE FROM rosters WHERE week='$week'");
+    getDB()->query("DELETE FROM rosters WHERE week='$week'");
     /*$matchups=$weeklyResults->matchup;
     ?><pre><? print_r($weeklyResults->matchup[11]); ?></pre><?// die(); //continue; die();
 */
@@ -76,10 +83,10 @@ function loadRosters($week, $weeklyResults){
                 if($starter!=''){
                     $id=$franchise['id'];
                     $query="SELECT id FROM rosters WHERE team_id='$id' AND player_id='$starter' AND week='$week'";
-                    $result=mysql_query($query) or die(mysql_error());
-                    if(mysql_num_rows($result)==0){
+                    $result=getDB()->query($query) ;
+                    if($result->num_rows == 0){
                         $query="INSERT INTO rosters (team_id, player_id, week) VALUES ('$id', '$starter', '$week')";
-                        mysql_query($query) or die(mysql_error());
+                        getDB()->query($query) ;
                     }
                 }
             }
@@ -92,10 +99,10 @@ function loadRosters($week, $weeklyResults){
             if($starter!=''){
                 $id=$franchise['id'];
                 $query="SELECT id FROM rosters WHERE team_id='$id' AND player_id='$starter' AND week='$week'";
-                $result=mysql_query($query) or die(mysql_error());
-                if(mysql_num_rows($result)==0){
+                $result=getDB()->query($query) ;
+                if($result->num_rows==0){
                     $query="INSERT INTO rosters (team_id, player_id, week) VALUES ('$id', '$starter', '$week')";
-                    mysql_query($query) or die(mysql_error());
+                    getDB()->query($query) ;
                 }
             }
         }
@@ -104,17 +111,17 @@ function loadRosters($week, $weeklyResults){
 }
 
 function loadTeams(){
-    mysql_query("TRUNCATE TABLE teams");
+    getDB()->query("TRUNCATE TABLE teams");
     global $currentDate;
 //	$tlog=fopen("log/".date("Y-m-d_H:i:s", $currentDate)."/teams", "a");
     $league=simplexml_load_file("http://football2.myfantasyleague.com/".YEAR."/export?TYPE=league&L=".L_ID);
     $franchises=$league->franchises[0]->franchise;
     foreach ($franchises as $franchise) {
         $id=$franchise['id'];
-        $name=mysql_real_escape_string($franchise['name']);
+        $name=getDB()->escape_string($franchise['name']);
         $query="INSERT INTO teams (id, name) VALUES ('$id', '$name')";
 //		fwrite($tlog,"$query\n");
-        mysql_query($query);
+        getDB()->query($query);
     }
 //	fclose($tlog);
 }
@@ -125,19 +132,19 @@ function checkValid($team_id, $player_id){
     global $week;
     $pos=getPos($player_id);
     $query="SELECT count(*) as total FROM rosters, players WHERE team_id='$team_id' AND week='$week' AND players.id=player_id AND position='$pos'";
-    $result=mysql_query($query) or die(mysql_error());
-    $row=mysql_fetch_array($result);
+    $result=getDB()->query($query) ;
+    $row=($result->fetch_array());
     $query="SELECT * FROM rosters WHERE team_id='$team_id' AND week='$week' AND player_id='$player_id'";
-    $inroster=mysql_query($query) or die(mysql_error());
-    return ($NUM_STARTERS[$pos]==$row['total'] && mysql_num_rows($inroster)==1);
+    $inroster=getDB()->query($query) ;
+    return ($NUM_STARTERS[$pos]==$row['total'] && $inroster->num_rows==1);
 
 
 }
 
 function getPos($player_id){
     $query="SELECT position FROM players WHERE id='$player_id'";
-    $result=mysql_query($query) or die(mysql_error());
-    $row=mysql_fetch_array($result);
+    $result=getDB()->query($query) ;
+    $row=$result->fetch_array();
     return $row['position'];
 }
 
@@ -164,10 +171,10 @@ else $team_id=$id;
 
 if (isset($flex) && $flex!='' && $userchange!="TRUE") {
     $query="SELECT * FROM flex WHERE team_id='$id' AND week='$week'";
-    $result=mysql_query($query) or die(mysql_error());
-    if (mysql_num_rows($result) >0) $query="UPDATE flex SET player_id='$flex', carry_over='0' WHERE team_id='$id' AND week='$week'";
+    $result=getDB()->query($query) ;
+    if ($result->num_rows >0) $query="UPDATE flex SET player_id='$flex', carry_over='0' WHERE team_id='$id' AND week='$week'";
     else $query="INSERT INTO flex (team_id, player_id, week) VALUES ('$id', '$flex', '$week')";
-    mysql_query($query) or die(mysql_error());
+    getDB()->query($query) ;
 } else {
     $result_url = "http://football.myfantasyleague.com/".YEAR."/export?TYPE=weeklyResults&L=".L_ID."&W=$week";
   //  print($result_url);
@@ -176,9 +183,9 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
     $schedule=simplexml_load_file("http://football.myfantasyleague.com/".YEAR."/export?TYPE=nflSchedule&L=".L_ID."&W=$week");
 
     $query="SELECT * FROM roster_lock WHERE team_id='$id'";
-    $result=mysql_query($query) or die(mysql_error());
-    if (mysql_num_rows($result)==0){
-        mysql_query("INSERT INTO roster_lock (team_id) VALUES ('$id')");
+    $result=getDB()->query($query) ;
+    if ($result->num_rows==0){
+        getDB()->query("INSERT INTO roster_lock (team_id) VALUES ('$id')");
         loadRosters($week, $weeklyResults);
         loadSchedule($week, $schedule);
         loadTeams();
@@ -232,10 +239,10 @@ echo "<input type='hidden' name='week' value='$week' />";
 echo "<div class='pagebody homepagecolumn'><table class='homepagemodule report' align='center' style='position:absolute;top:0px;width:100%;'><span><caption>Select Your Flex Player</caption></span><tbody><tr><th colspan='4'>";
 echo "Current Flex Player: ";
 $query="SELECT player_id, players.name, schedule.date curr_date FROM flex, players, schedule WHERE flex.week='$week' AND flex.team_id='$id' AND players.id=flex.player_id AND schedule.team_id=players.team AND schedule.week='$week' LIMIT 1";
-$result=mysql_query($query) or die(mysql_error());
-if(mysql_num_rows($result)==0) echo "No Flex Selected";
+$result=getDB()->query($query) ;
+if($result->num_rows==0) echo "No Flex Selected";
 else {
-	$row=mysql_fetch_array($result);
+	$row=($result->fetch_assoc());
 	extract($row);
 	echo "$name";
 }
@@ -247,9 +254,9 @@ if ($true_id==0) {
 	echo "<tr class='oddtablerow'><td colspan='4'><center><select name='id' ";
 	echo "onchange=\"document.getElementById('userchange').value='TRUE';document.flexform.submit();\">";
 	$query="SELECT * FROM teams";
-	$result=mysql_query($query) or die(mysql_error());
+	$result=getDB()->query($query) ;
 	echo "<option value='0'>--Select a team--</option>";
-	while ($row=mysql_fetch_array($result)){
+	while ($row=$result->fetch_assoc()){
 		echo "<option value='".$row['id']."' ";
 		if ($row['id']==$id) echo "selected='selected'";
 		echo ">".$row['name']."</option>";
@@ -260,14 +267,14 @@ if ($true_id==0) {
 
 $pos='';
 $query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND  position='RB' AND week='$week'";
-$result=mysql_query($query) or die(mysql_error());
-if (mysql_num_rows($result)==3) $pos='RB';
+$result=getDB()->query($query) ;
+if ($result->num_rows==3) $pos='RB';
 $query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND position='WR' AND week='$week'";
-$result=mysql_query($query) or die(mysql_error());
-if (mysql_num_rows($result)==3) $pos='WR';
+$result=getDB()->query($query) ;
+if ($result->num_rows==3) $pos='WR';
 $query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND position='TE' AND week='$week'";
-$result=mysql_query($query) or die(mysql_error());
-if (mysql_num_rows($result)==2) $pos='TE';
+$result=getDB()->query($query) ;
+if ($result->num_rows==2) $pos='TE';
 if ($pos=='') {
 	echo "<tr class='$trclass'><td colspan=4>You have no eligible flex players. Please set your lineup properly, dumbass</td></tr>";
 }
@@ -280,8 +287,8 @@ $query="SELECT rosters.team_id, players.*, schedule.date
 				AND schedule.team_id=players.team
 				AND schedule.week='$week'";
 fwrite($log, "$stamp - $query\n");
-$result=mysql_query($query) or die(mysql_error());
-while ($row=mysql_fetch_array($result)) {
+$result=getDB()->query($query) ;
+while ($row=$result->fetch_assoc()) {
 	extract($row);
 	echo "<tr class='$trclass'><td>";
 //	echo strtotime($date)."  -  ".time()."  -  ".strtotime($curr_date);
@@ -306,33 +313,33 @@ echo "</select></center></td></tr>";
 $trclass='eventablerow';
 
 $query="SELECT * FROM teams";
-$teams=mysql_query($query) or die(mysql_error());
-while ($team=mysql_fetch_array($teams)) {
+$teams=getDB()->query($query) ;
+while ($team=$teams->fetch_assoc()) {
 	echo "<tr class='$trclass'><td colspan='2'><a href='http://football2.myfantasyleague.com/".YEAR."/options?L=".L_ID."&F=".str_pad($team['id'], 4, "0", STR_PAD_LEFT)."&O=01' target='_top'>".$team['name']."</a></td>";
 	$query="SELECT players.name, player_id, carry_over
 					FROM flex, players
 					WHERE week='$week' AND player_id=players.id AND team_id='";
 	$query.=$team['id']."'";
 	echo "<td colspan=2>";
-	$result=mysql_query($query) or die(mysql_error());
-	if (mysql_num_rows($result)==0){
+	$result=getDB()->query($query) ;
+	if ($result->num_rows==0){
 		$query="SELECT players.name, player_id
 						FROM flex, players
 						WHERE week='".max($week-1,1)."'
 							AND player_id=players.id
 							AND team_id='".$team['id']."' LIMIT 1";
-		$lresult=mysql_query($query) or die(mysql_error());
-		if (mysql_num_rows($lresult)==1){
-			$lrow=mysql_fetch_array($lresult);
+		$lresult=getDB()->query($query) ;
+		if ($lresult->num_rows==1){
+			$lrow=$lresult->fetch_assoc();
 			if (checkValid($team['id'], $lrow['player_id'])){
 				$query="INSERT INTO flex (team_id, player_id, week, carry_over)
 								VALUES ('".$team['id']."', '".$lrow['player_id']."', '$week', '1')";
-				mysql_query($query) or die(mysql_error());
+				getDB()->query($query) ;
 				echo "<span style='color:#$vcarry;font-weight:bold;'>".$lrow['name']."</span>";
 			} else echo "<span style='color:#$icarry;font-weight:bold;'>".$lrow['name']."</span>";
 		}	else echo "<span style='color:#$ipick;font-weight:bold;'>NO FLEX SELECTED</span>";
 	} else {
-		$row=mysql_fetch_array($result);
+		$row=($result->fetch_assoc());
 		if (checkValid($team['id'],$row['player_id'])){
 			if ($row['carry_over'])
 				echo "<span style='color:#$vcarry;font-weight:bold;'>".$row['name']."</span>";
@@ -356,8 +363,8 @@ echo "</table></div>";
 echo "</form>";
 //fclose($log);
 $query="DELETE FROM roster_lock WHERE team_id='$team_id'";
-mysql_query($query) or die(mysql_error());
+getDB()->query($query) ;
 
-mysql_close();
+
 //echo "</div>";
 echo "</body></html>";
