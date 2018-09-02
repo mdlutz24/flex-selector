@@ -33,30 +33,32 @@
   padding-left: 40px;
   float: left;
   height: 100%;
-  background: transparent url("http://mfl.hazelknot.com/images/movewhite.svg") 20% center/auto 80% no-repeat;
-}
-
-/* line 25, web/scss/style.scss */
-.board .pick .match {
-  font-size: 10px;
-}
-
-/* line 27, web/scss/style.scss */
-.board .pick .match .teamname {
-  font-size: 10px;
+  background: #0000 url(http://mfl.hazelknot.com/images/movewhite.svg) 3px center/auto 80% no-repeat;
+  width: 70px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 7px;
 }
 
 /* line 30, web/scss/style.scss */
+.board .pick .match {
+  font-size: 15px;
+  line-height: 15px;
+  padding-top: 3px;
+}
+
+/* line 37, web/scss/style.scss */
 .board .pick .match .oteamname {
   font-size: 10px;
 }
 
-/* line 34, web/scss/style.scss */
+/* line 41, web/scss/style.scss */
 .board .pick .kickoff {
   font-size: 10px;
 }
 
-/* line 38, web/scss/style.scss */
+/* line 45, web/scss/style.scss */
 .board .hometeams {
   width: 25%;
   float: left;
@@ -64,7 +66,7 @@
   margin-right: -30%;
 }
 
-/* line 45, web/scss/style.scss */
+/* line 52, web/scss/style.scss */
 .board .awayteams {
   width: 25%;
   float: left;
@@ -72,7 +74,7 @@
   margin-right: -60%;
 }
 
-/* line 52, web/scss/style.scss */
+/* line 59, web/scss/style.scss */
 .board .picks {
   width: 25%;
   float: left;
@@ -82,14 +84,14 @@
   min-height: 30px;
 }
 
-/* line 62, web/scss/style.scss */
+/* line 69, web/scss/style.scss */
 .board .hometeams .pick.selected, .board .awayteams .pick.selected {
   border-color: grey;
   cursor: auto;
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 72, web/scss/style.scss */
+  /* line 79, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;

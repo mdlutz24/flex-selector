@@ -17,15 +17,22 @@
     background: linear-gradient(to bottom,#141b21 0%,#41494f 50%,#141b21 100%);
     color: white;
     .confidence {
-      padding-left:40px;
-      float:left;
+      padding-left: 40px;
+      float: left;
       height: 100%;
-      background: transparent url('http://mfl.hazelknot.com/images/movewhite.svg') 20% center/auto 80% no-repeat;
+      background: #0000 url(http://mfl.hazelknot.com/images/movewhite.svg) 3px center/auto 80% no-repeat;
+      width: 70px;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      padding-right: 7px;
     }
     .match {
-      font-size:10px;
+      font-size: 15px;
+      line-height: 15px;
+      padding-top: 3px;
       .teamname {
-        font-size: 10px;
+
       }
       .oteamname {
         font-size: 10px;
