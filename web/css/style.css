@@ -1,11 +1,13 @@
 /* line 1, web/scss/style.scss */
 .board {
+  padding-top: 20px;
+  padding-bottom: 20px;
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-/* line 5, web/scss/style.scss */
+/* line 7, web/scss/style.scss */
 .board .pick {
   height: 40px;
   line-height: 20px;
@@ -28,7 +30,7 @@
   color: white;
 }
 
-/* line 19, web/scss/style.scss */
+/* line 21, web/scss/style.scss */
 .board .pick .confidence {
   padding-left: 40px;
   float: left;
@@ -41,42 +43,42 @@
   padding-right: 7px;
 }
 
-/* line 30, web/scss/style.scss */
+/* line 32, web/scss/style.scss */
 .board .pick .match {
   font-size: 15px;
   line-height: 15px;
   padding-top: 3px;
 }
 
-/* line 37, web/scss/style.scss */
+/* line 39, web/scss/style.scss */
 .board .pick .match .oteamname {
   font-size: 10px;
 }
 
-/* line 41, web/scss/style.scss */
+/* line 43, web/scss/style.scss */
 .board .pick .kickoff {
   font-size: 10px;
 }
 
-/* line 45, web/scss/style.scss */
+/* line 47, web/scss/style.scss */
 .board .pick.oselected {
   background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #12190f));
   background: linear-gradient(to bottom, #1b2617 0%, #12190f 51%);
 }
 
-/* line 48, web/scss/style.scss */
+/* line 50, web/scss/style.scss */
 .board .pick.selected {
   background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #3f5737));
   background: linear-gradient(to bottom, #1b2617 0%, #3f5737 51%);
   cursor: auto;
 }
 
-/* line 51, web/scss/style.scss */
+/* line 53, web/scss/style.scss */
 .board .pick.selected .confidence {
   background-image: url(http://mfl.hazelknot.com/images/movegrey.svg);
 }
 
-/* line 56, web/scss/style.scss */
+/* line 58, web/scss/style.scss */
 .board .hometeams {
   width: 25%;
   float: left;
@@ -84,7 +86,7 @@
   margin-right: -30%;
 }
 
-/* line 63, web/scss/style.scss */
+/* line 65, web/scss/style.scss */
 .board .awayteams {
   width: 25%;
   float: left;
@@ -92,7 +94,7 @@
   margin-right: -60%;
 }
 
-/* line 70, web/scss/style.scss */
+/* line 72, web/scss/style.scss */
 .board .picks {
   width: 25%;
   float: left;
@@ -102,27 +104,27 @@
   min-height: 30px;
 }
 
-/* line 77, web/scss/style.scss */
+/* line 79, web/scss/style.scss */
 .board .picks .removing {
   background: -webkit-gradient(linear, left top, left bottom, from(#400406), color-stop(51%, #7A4419));
   background: linear-gradient(to bottom, #400406 0%, #7A4419 51%);
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 91, web/scss/style.scss */
+  /* line 93, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
 }
 
-/* line 97, web/scss/style.scss */
+/* line 99, web/scss/style.scss */
 input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
 }
 
-/* line 102, web/scss/style.scss */
+/* line 104, web/scss/style.scss */
 .confidence-table {
   display: none;
 }
