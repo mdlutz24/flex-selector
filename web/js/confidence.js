@@ -142,7 +142,7 @@ if (typeof franchise_id != 'undefined' &&
 
         var nflSchedule;
         var week = $form.children('input[name=WEEK]').val();
-        $.getJSON("https://www71.myfantasyleague.com/2018/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
+        $.getJSON("http://www71.myfantasyleague.com/2018/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
           for($match in data.nflSchedule.matchup) {
 
           }
