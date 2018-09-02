@@ -88,6 +88,8 @@ if (typeof franchise_id != 'undefined' &&
           $matches[i].children('.confidence').html(rank.toString());
           if (rank > 12) {
             $matches[i].addClass('locked');
+          } else {
+            $matches[i].addClass('unlocked');
           }
           $picks.append($matches[i].removeClass('selected game-picked'));
         }
@@ -158,7 +160,7 @@ if (typeof franchise_id != 'undefined' &&
             if (ui.helper.hasClass('oselected')) {
               $('.picks .'+ui.helper.data('opponent')).addClass('removing');
             }
-            ui.helper.removeClass('selected oselected game-picked');
+            ui.helper.removeClass('selected oselected game-picked').addClass('unlocked');
           },
           stop: function(event, ui){
             $('.picks .'+ui.helper.data('opponent')).removeClass('removing');
