@@ -89,7 +89,7 @@ if (typeof franchise_id != 'undefined' &&
         $board.append($awayteams);
         $board.append($picks);
         $table.after($board);
-        if ($picks.children.length != $hometeams.children.length) {
+        if ($picks.children().length != $hometeams.children().length) {
           $form.find('input[type=submit]').prop('disabled', true);
         }
 
