@@ -7,7 +7,7 @@
 
 /* line 5, web/scss/style.scss */
 .board .pick {
-  height: 50px;
+  height: 40px;
   line-height: 20px;
   font-size: 16px;
   margin-bottom: 5px;
@@ -23,42 +23,45 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#141b21), color-stop(50%, #41494f), to(#141b21));
+  background: linear-gradient(to bottom, #141b21 0%, #41494f 50%, #141b21 100%);
+  color: white;
 }
 
-/* line 18, web/scss/style.scss */
+/* line 20, web/scss/style.scss */
 .board .hometeams {
-  width: 20%;
+  width: 25%;
   float: left;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-right: -30%;
 }
 
-/* line 25, web/scss/style.scss */
+/* line 27, web/scss/style.scss */
 .board .awayteams {
-  width: 20%;
+  width: 25%;
   float: left;
   margin-left: 35%;
-  margin-right: -55%;
+  margin-right: -60%;
 }
 
-/* line 32, web/scss/style.scss */
+/* line 34, web/scss/style.scss */
 .board .picks {
-  width: 20%;
+  width: 25%;
   float: left;
   margin-left: 70%;
-  margin-right: -90%;
+  margin-right: -95%;
   background-color: #acacac;
   min-height: 30px;
 }
 
-/* line 42, web/scss/style.scss */
+/* line 44, web/scss/style.scss */
 .board .hometeams .pick.selected, .board .awayteams .pick.selected {
   border-color: grey;
   cursor: auto;
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 52, web/scss/style.scss */
+  /* line 54, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
