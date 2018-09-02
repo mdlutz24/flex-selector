@@ -253,7 +253,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
         return;
       }
     });
-    $('#flex-table .report').height().on('load', function(){
+    $('#flex-table .report').on('load', function(){
       window.parent.postMessage($('#flex-table .report').height(), 'http://www71.myfantasyleague.com');
     })
 </script>
