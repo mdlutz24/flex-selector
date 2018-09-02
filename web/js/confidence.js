@@ -83,6 +83,8 @@ if (typeof franchise_id != 'undefined' &&
           return a.data('conf') - b.data('conf')
         });
         for (var i = 0; i < $matches.length; i++ ) {
+          var rank = count - i;
+          $matches[i].children('.confidence').html(rank.toString());
           $picks.append($matches[i].removeClass('selected game-picked'));
         }
         var $board = $("<div class='board'></div>");
