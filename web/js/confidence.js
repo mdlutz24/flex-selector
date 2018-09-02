@@ -150,7 +150,7 @@ if (typeof franchise_id != 'undefined' &&
               var team = match.team[j];
               var teamid = team.id
               var spread = team.spread
-              $(".pick." + team.id+ " .kickoff").html(kickoff.toDateString())
+              $(".pick." + team.id+ " .kickoff").html("Kickoff: " + kickoff.toDateString() + " " +kickoff.toTimeString())
             }
 
           }
