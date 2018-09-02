@@ -93,3 +93,7 @@
     float: left
   }
 }
+
+input[type=submit]:hover:disabled {
+  background-color: #0d140b;
+}

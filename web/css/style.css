@@ -115,3 +115,8 @@
     float: left;
   }
 }
+
+/* line 97, web/scss/style.scss */
+input[type=submit]:hover:disabled {
+  background-color: #0d140b;
+}
