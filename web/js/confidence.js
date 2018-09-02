@@ -27,9 +27,10 @@ if (typeof franchise_id != 'undefined' &&
         var $awayteams = $('<div class="awayteams"></div>');
         var $picks = $('<div class="picks"></div>');
         var $matches = [];
-
+        var count = 0;
         $rows.each(function () {
           if (!$(this).hasClass('oddtablerow') && !$(this).hasClass('eventablerow')) return;
+          count++;
           var $hometd = $(this).children('td:first-child');
           var $homeradio = $hometd.children('input');
           var $conf = $(this).find('select');
@@ -83,7 +84,7 @@ if (typeof franchise_id != 'undefined' &&
           $picks.append($match);
         }
         var $board = $("<div class='board'></div>");
-        $picks.height($('.hometeams .pick').length * 45);
+        $picks.height(count * 45);
         $board.append($hometeams);
         $board.append($awayteams);
         $board.append($picks);
