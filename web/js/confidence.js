@@ -90,6 +90,9 @@ if (typeof franchise_id != 'undefined' &&
         });
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
+          if (rank == 12 ) {
+            $matches[i].addClass('static locked');
+          }
           $matches[i].children('.confidence').html(rank.toString());
           $picks.append($matches[i].removeClass('selected game-picked'));
         }
