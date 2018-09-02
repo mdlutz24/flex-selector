@@ -138,7 +138,7 @@ if (typeof franchise_id != 'undefined' &&
           cancel: ".locked"
         });
 
-        $board.find('.hometeam.pick, .awayteam.pick').draggable({
+        $board.find('.hometeams .pick, .awayteams .pick').draggable({
           helper: function (a, b) {
             var $helper = $(this).clone();
             $helper.data('name', $(this).data('name'));
