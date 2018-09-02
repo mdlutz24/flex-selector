@@ -17,7 +17,7 @@ if (typeof franchise_id != 'undefined' &&
 
   (function ($, window, document, franchise_id, completedWeek, liveScoringWeek, thisProgram) {
     $(document).ready(function () {
-      if (thisProgram == 'options_121' && franchise_id == '0001') {
+      if (thisProgram == 'options_121') {
         var $form = $('form input[name=TYPE]').parent();
         if (typeof $form == 'undefined') return;
         var $table = $form.find('table');
@@ -90,9 +90,9 @@ if (typeof franchise_id != 'undefined' &&
         });
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
-          if (rank == 12 ) {
+          /*if (rank == 12 ) {
             $matches[i].addClass('static locked');
-          }
+          } */
           $matches[i].children('.confidence').html(rank.toString());
           $picks.append($matches[i].removeClass('selected game-picked'));
         }
