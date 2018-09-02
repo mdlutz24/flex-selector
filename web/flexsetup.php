@@ -13,14 +13,13 @@ $icarry='FF5555';
 $vcarry='55ff55';
 
 
-$host='localhost';
-$user='mfl';
-$pass='AyOkUPmRwM3yvoZs';
-$db = new mysqli($host, $user, $pass, 'mfl');
 
 function getDB() {
     static $db = FALSE;
     if (!$db) {
+      $host='localhost';
+      $user='mfl';
+      $pass='AyOkUPmRwM3yvoZs';
         $db = new mysqli($host, $user, $pass, 'mfl');
     }
     return $db;
@@ -40,7 +39,7 @@ function loadSchedule($week, $schedule){
         foreach($teams as $team){
             $id=$team['id'];
             $query="INSERT INTO schedule (team_id, date, week) VALUES ('$id', '$date', '$week')";
-            fwrite($slog,"$query\n");
+            //fwrite($slog,"$query\n");
  //           echo $query."<br />";
             getDB()->query($query);
         }
@@ -63,7 +62,7 @@ function loadPlayers(){
         extract($arrays);
         $query="INSERT INTO players (id, name, position, team) VALUES ('$id', '$name', '$position', '$team')";
    //     echo "Adding $id, $name, $position, $team<br />";
-        getDB()->query($query));
+        getDB()->query($query);
     }
    // fclose($plog);
 }
