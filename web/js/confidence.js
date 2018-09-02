@@ -17,7 +17,7 @@ if (typeof franchise_id != 'undefined' &&
 
   (function ($, window, document, franchise_id, completedWeek, liveScoringWeek, thisProgram) {
     $(document).ready(function () {
-      if (thisProgram == 'options_179') {
+      if (thisProgram == 'options_121' && franchise_id == "0001") {
         var $form = $('form input[name=TYPE]').parent();
         if (typeof $form == 'undefined') return;
         var $table = $form.find('table');
