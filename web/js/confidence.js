@@ -37,7 +37,7 @@ if (typeof franchise_id != 'undefined' &&
           var $awayradio = $awaytd.children('input');
 
           var $hometeam = $("<div class='hometeam home pick'></div>");
-          $hometeam.html("<div class='match'><span class='teamname'>" + $hometd.children('label').text()+ "</span> <span class='oteamname'>vs " + $awaytd.children('label').text() + "</span></div><div class='kickoff'></div>");
+          $hometeam.html("<div class='confidence'></div><div class='match'><span class='teamname'>" + $hometd.children('label').text()+ "</span> <span class='oteamname'>vs " + $awaytd.children('label').text() + "</span></div><div class='kickoff'></div>");
           $hometeam.data('name', $homeradio.attr('name'));
           $hometeam.data('value', $homeradio.val());
           $hometeam.data('opponent', $awayradio.val());
@@ -47,7 +47,7 @@ if (typeof franchise_id != 'undefined' &&
           $hometeam.addClass($homeradio.val());
 
           var $awayteam = $("<div class='awayteam away pick'></div>");
-          $awayteam.html("<div class='match'><span class='teamname'>" + $awaytd.children('label').text()+ "</span> <span class='oteamname'>@ " + $hometd.children('label').text() + "</span></div><div class='kickoff'></div>");
+          $awayteam.html("<div class='confidence'></div><div class='match'><span class='teamname'>" + $awaytd.children('label').text()+ "</span> <span class='oteamname'>@ " + $hometd.children('label').text() + "</span></div><div class='kickoff'></div>");
           $awayteam.data('name', $awayradio.attr('name'));
           $awayteam.data('value', $awayradio.val());
           $awayteam.data('opponent', $homeradio.val());

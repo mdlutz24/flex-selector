@@ -16,6 +16,12 @@
     user-select: none;
     background: linear-gradient(to bottom,#141b21 0%,#41494f 50%,#141b21 100%);
     color: white;
+    .confidence {
+      padding-left:40px;
+      float:left;
+      height: 100%;
+      background: transparent url('http://mfl.hazelknot.com/images/movewhite.svg') left center/auto 100% no-repeat;
+    }
   }
   .hometeams {
     width: 25%;
