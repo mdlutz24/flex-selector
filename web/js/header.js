@@ -1,5 +1,5 @@
 //this code is created to fix this problem: http://stackoverflow.com/questions/4299241/
-
+/*
 (function( $, undefined ) {
 
   $.widget("ui.fixedsortable", $.ui.sortable, {
@@ -190,4 +190,4 @@
     }
   });
 
-})(jQuery);
+})(jQuery); */

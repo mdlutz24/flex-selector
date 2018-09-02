@@ -63,8 +63,8 @@ if (typeof franchise_id != 'undefined' &&
             $hometeam.data('conf', $conf.val());
           }
           if ($homeradio.prop('disabled')) {
-            $hometeam.addClass('locked');
-            $awayteam.addClass('locked');
+            $hometeam.addClass('locked static');
+            $awayteam.addClass('locked static');
           }
 
           if ($awayradio.is(':checked')) {
@@ -104,7 +104,7 @@ if (typeof franchise_id != 'undefined' &&
         }
 
 
-        $picks.fixedsortable({
+        $picks.sortable({
           receive: function (event, ui) {
             var $item = ui.item;
             var value = $item.data('value');
@@ -138,9 +138,24 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
-            $(this);
+            $sortable = $(this);
+            $statics = $('.static', this).detach();
+            $helper = $('<div></div>').prependTo(this);
+            $statics.each(function(){
+              var $this = $(this);
+              var target = $this.data('pos');
+
+              $this.insertAfter($('div', $sortable).eq(target));
+            });
+            $helper.remove();
           },
-          fixed: ".locked"
+          items: ':not(.static)',
+          start: function(){
+            $('.static', this).each(function(){
+              var $this = $(this);
+              $this.data('pos', $this.index());
+            });
+          }
         });
 
         $board.find('.hometeams .pick, .awayteams .pick').draggable({
