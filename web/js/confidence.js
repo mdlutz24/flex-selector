@@ -149,7 +149,7 @@ if (typeof franchise_id != 'undefined' &&
             $helper.data('selectname', $(this).data('selectname'));
             return $helper;
           },
-          cancel: '.selected',
+          cancel: '.selected, .locked',
           revert: 'invalid',
           connectToSortable: '.picks',
           start: function (event, ui) {
