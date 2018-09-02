@@ -64,12 +64,14 @@ if (typeof franchise_id != 'undefined' &&
 
           if ($awayradio.is(':checked')) {
             $awayteam.data('selected', true);
-            $awayteam.addClass('selected');
+            $awayteam.addClass('selected game-picked');
+            $hometeam.addClass('oselected game-picked');
             $matches.push($awayteam.clone(true));
           }
           if ($homeradio.is(':checked')) {
             $hometeam.data('selected', true);
-            $hometeam.addClass('selected');
+            $hometeam.addClass('selected game-picked');
+            $awayteam.addClass('oselected game-picked');
             $matches.push($hometeam.clone(true));
           }
           $hometeams.append($hometeam);
@@ -79,9 +81,9 @@ if (typeof franchise_id != 'undefined' &&
 
         $matches.sort(function (a, b) {
           return a.data('conf') - b.data('conf')
-        })
+        });
         for (var i = 0; i < $matches.length; i++ ) {
-          $picks.append($matches[i]);
+          $picks.append($matches[i].removeClass('selected game-picked'));
         }
         var $board = $("<div class='board'></div>");
         $picks.height(count * 45);
