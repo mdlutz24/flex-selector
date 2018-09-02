@@ -88,7 +88,10 @@ if (typeof franchise_id != 'undefined' &&
         $board.append($hometeams);
         $board.append($awayteams);
         $board.append($picks);
-        $form.after($board);
+        $table.after($board);
+        if ($picks.children.length != $hometeams.children.length) {
+          $form.find('input[type=submit]').prop('disabled', true);
+        }
 
 
         $picks.sortable({
@@ -103,6 +106,9 @@ if (typeof franchise_id != 'undefined' &&
             $('.' + type + 'teams .' + value).removeClass('oselected').addClass('selected game-picked');
             $('.' + otype + 'teams .' + opponent).removeClass('selected').addClass('oselected game-picked');
             $('input[value=' + value + ']').prop('checked', true);
+            if ($(".picks .pick").length = $(".hometeams .pick").length) {
+              $('form input[name=TYPE]').parent().find('input[type=submit]').prop('disabled', false);
+            }
 
 
           },
