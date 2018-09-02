@@ -29,6 +29,11 @@
       font-weight: bold;
       padding-right: 7px;
     }
+    .locked {
+      .confidence {
+        background-image: url(http://mfl.hazelknot.com/images/movegrey.svg)
+      }
+    }
     .match {
       font-size: 15px;
       line-height: 15px;

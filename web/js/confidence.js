@@ -62,6 +62,10 @@ if (typeof franchise_id != 'undefined' &&
             $awayteam.data('conf', $conf.val());
             $hometeam.data('conf', $conf.val());
           }
+          if ($homeradio.prop('disabled')) {
+            $hometeam.addClass('locked');
+            $awayteam.addClass('locked');
+          }
 
           if ($awayradio.is(':checked')) {
             $awayteam.data('selected', true);
@@ -75,6 +79,7 @@ if (typeof franchise_id != 'undefined' &&
             $awayteam.addClass('oselected game-picked');
             $matches.push($hometeam.clone(true));
           }
+
           $hometeams.append($hometeam);
           $awayteams.append($awayteam);
 
@@ -86,11 +91,6 @@ if (typeof franchise_id != 'undefined' &&
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
           $matches[i].children('.confidence').html(rank.toString());
-          if (rank == 12) {
-            $matches[i].addClass('locked');
-          } else {
-            $matches[i].addClass('unlocked');
-          }
           $picks.append($matches[i].removeClass('selected game-picked'));
         }
         var $board = $("<div class='board'></div>");
