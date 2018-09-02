@@ -83,6 +83,7 @@ if (typeof franchise_id != 'undefined' &&
           $picks.append($match);
         }
         var $board = $("<div class='board'></div>");
+        $picks.height($('.hometeams .pick').length * 45);
         $board.append($hometeams);
         $board.append($awayteams);
         $board.append($picks);
