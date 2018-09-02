@@ -220,9 +220,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 	<title>
 		Flex Select
 	</title>
-<link rel="stylesheet" href="http://www9.myfantasyleague.com/fflnetdynamic2013/14936.css" type="text/css"  />
-<link rel="stylesheet" href="http://www9.myfantasyleague.com/skins/style_4/4d.css" type="text/css"  />
-<link rel="shortcut icon" href="http://www9.myfantasyleague.com/favicon.ico"  />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="http://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
+    <link rel="stylesheet" id="skin" href="http://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
+    <link rel="stylesheet" id="responsive" href="http://www71.myfantasyleague.com/skins17/Camo/responsive.css" type="text/css"  />
+    <link rel="stylesheet" id="custom" href="http://mfl.hazelknot.com/css/style.css" type="text/css"  />
 <style type='text/css'>
 	body{
 		background-color:transparent;
