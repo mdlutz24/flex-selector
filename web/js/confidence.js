@@ -141,6 +141,12 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
+            $picklist.each(function () {
+              $(this).data('conf', conf)
+              $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
+              $(this).children('.confidence').html(conf.toString());
+              conf--;
+            });
             $sortable = $(this);
             $statics = $('.static', this).detach();
             $helper = $('<div></div>').prependTo(this);
