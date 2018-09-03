@@ -145,13 +145,15 @@ if (typeof franchise_id != 'undefined' &&
             var $table = $form.find('table');
             $helper = ui.helper;
             var conf = $table.find('select').length;
-            var $picklist = $(this).children('.pick');
+            var $picklist = $(this).children('.pick:not(.ui-sortable-helper)');
             $picklist.each(function () {
               $(this).data('conf', conf)
             //  $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
               $(this).children('.confidence').html(conf.toString());
               conf--;
             });
+            $(this).find('.pick.ui-sortable-helper .confidence').html($(this).children('.ui-sortable-placeholder').data('conf').toString());
+
             $sortable = $(this);
             $statics = $('.static', this).detach();
             $helper = $('<div></div>').prependTo(this);
