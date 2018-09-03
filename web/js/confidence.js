@@ -141,9 +141,14 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
+            var $form = $('form input[name=TYPE]').parent();
+            var $table = $form.find('table');
+            $helper = ui.helper;
+            var conf = $table.find('select').length;
+            var $picklist = $(this).children('.pick');
             $picklist.each(function () {
               $(this).data('conf', conf)
-              $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
+            //  $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
               $(this).children('.confidence').html(conf.toString());
               conf--;
             });
