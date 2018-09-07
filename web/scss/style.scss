@@ -84,7 +84,6 @@ $invalid: linear-gradient(to bottom,#400406 0%,#7A4419 51%);
     min-height: 30px;
     background: $picked;
     .removing {
-
       background: $invalid
     }
   }
@@ -128,5 +127,5 @@ input[type=submit]:hover:disabled {
 }
 
 .confidence-table {
-  display: none;
+ // display: none;
 }
