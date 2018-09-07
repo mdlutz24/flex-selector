@@ -201,6 +201,18 @@ if (typeof franchise_id != 'undefined' &&
               $(this).data('position', $(this).index());
               console.log('starting: index ' + $(this).index());
             });
+          },
+          out: function() {
+            console.log('out stop');
+            var index = $('.ui-sortable-helper', this).index();
+            var $lockhelper = $('<div></div>').prependTo(this);
+            var $locks = $('.locked', this).detach();
+            var $sortable = $(this);
+            $locks.each(function(){
+              var pos = $(this).data('position');
+              $(this).insertAfter($('> div', $sortable).eq(pos));
+            });
+            $lockhelper.remove();
           }
         });
 
