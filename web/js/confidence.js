@@ -122,6 +122,17 @@ if (typeof franchise_id != 'undefined' &&
             var otype = $item.data('otype');
             var type = $item.data('type');
             $('.picks .' + opponent).remove();
+
+            var index = $('.ui-sortable-helper', this).index();
+            var $lockhelper = $('<div></div>').prependTo(this);
+            var $locks = $('.locked', this).detach();
+            var $sortable = $(this);
+            $locks.each(function(){
+              var pos = $(this).data('position');
+              $(this).insertAfter($('> div', $sortable).eq(pos));
+            });
+            $lockhelper.remove();
+
             $('.' + type + 'teams .' + value).removeClass('oselected').addClass('selected game-picked');
             $('.' + otype + 'teams .' + opponent).removeClass('selected').addClass('oselected game-picked');
             $('input[value=' + value + ']').prop('checked', true);
