@@ -29,7 +29,7 @@
       font-weight: bold;
       padding-right: 7px;
     }
-    .locked {
+    &.locked {
       filter:brightness(60%);
       .confidence {
         background-image: url(http://mfl.hazelknot.com/images/movegrey.svg)
@@ -85,12 +85,6 @@
     .removing {
 
       background: linear-gradient(to bottom,#400406 0%,#7A4419 51%);
-    }
-    .locked {
-      .confidence {
-        background-image:url(http://mfl.hazelknot.com/images/movegrey.svg);
-      }
-
     }
   }
 
