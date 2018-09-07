@@ -104,16 +104,24 @@ if (typeof franchise_id != 'undefined' &&
         if ($picks.children().length != $hometeams.children().length) {
           $form.find('input[type=submit]').prop('disabled', true);
         }
+        function logevent(event) {
+          console.log (event.type + ' event');
+          console.log($('.picks > div').length + ' divs in picklist');
+          console.log($('.picks > .pick').length + ' picks in picklist');
+          console.log($('.picks.locked').length + ' locked');
+          console.log($('.picks .ui-draggable').length + ' incoming detected');
+        }
 
 
         $picks.sortable({
           activate: function(event, ui) {
-            //alert('activate');
+            logevent(event);
           },
           deactivate: function(event, ui) {
-            //alert('deactivate');
+            logevent(event);
           },
           receive: function (event, ui) {
+            logevent(event);
             var $item = ui.item;
             var value = $item.data('value');
             var name = $item.data('name');
@@ -143,6 +151,7 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           update: function (event, ui) {
+            logevent(event);
             var $form = $('form input[name=TYPE]').parent();
             var $table = $form.find('table');
             $helper = ui.helper;
@@ -158,7 +167,8 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
-            console.log('change stop');
+            logevent(event);
+        //    console.log('change stop');
             var index = $('.ui-sortable-helper', this).index();
             var $lockhelper = $('<div></div>').prependTo(this);
             var $locks = $('.locked', this).detach();
@@ -195,15 +205,18 @@ if (typeof franchise_id != 'undefined' &&
             $helper.remove(); */
           },
           items: '> :not(.static)',
-          start: function(){
-            console.log('starting');
+          start: function(event, ui){
+            logevent(event);
+        //    console.log('starting');
             $('.locked', this).each(function(){
               $(this).data('position', $(this).index());
               console.log('starting: index ' + $(this).index());
             });
           },
-          out: function() {
-            console.log('out stop');
+          over: logevent,
+          out: function(event, ui) {
+            logevent(event);
+          //  console.log('out stop');
             var index = $('.ui-sortable-helper', this).index();
             var $lockhelper = $('<div></div>').prependTo(this);
             var $locks = $('.locked', this).detach();
@@ -213,6 +226,10 @@ if (typeof franchise_id != 'undefined' &&
               $(this).insertAfter($('> div:not(.ui-draggable)', $sortable).eq(pos));
             });
             $lockhelper.remove();
+          },
+          stop: function(event) {
+            logevent(event)
+          //  console.log('stop stop');
           }
         });
 
