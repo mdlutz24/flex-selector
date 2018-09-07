@@ -1,4 +1,4 @@
-/* line 1, web/scss/style.scss */
+/* line 5, web/scss/style.scss */
 .board {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-/* line 7, web/scss/style.scss */
+/* line 11, web/scss/style.scss */
 .board .pick {
   height: 40px;
   line-height: 20px;
@@ -30,7 +30,7 @@
   color: white;
 }
 
-/* line 21, web/scss/style.scss */
+/* line 25, web/scss/style.scss */
 .board .pick .confidence {
   padding-left: 40px;
   float: left;
@@ -43,38 +43,32 @@
   padding-right: 7px;
 }
 
-/* line 32, web/scss/style.scss */
+/* line 36, web/scss/style.scss */
 .board .pick.locked {
   -webkit-filter: brightness(60%);
           filter: brightness(60%);
 }
 
-/* line 34, web/scss/style.scss */
+/* line 38, web/scss/style.scss */
 .board .pick.locked .confidence {
   background-image: url(http://mfl.hazelknot.com/images/movegrey.svg);
 }
 
-/* line 38, web/scss/style.scss */
+/* line 42, web/scss/style.scss */
 .board .pick .match {
   font-size: 15px;
   line-height: 15px;
   padding-top: 3px;
 }
 
-/* line 45, web/scss/style.scss */
+/* line 49, web/scss/style.scss */
 .board .pick .match .oteamname {
   font-size: 10px;
 }
 
-/* line 49, web/scss/style.scss */
+/* line 53, web/scss/style.scss */
 .board .pick .kickoff {
   font-size: 10px;
-}
-
-/* line 53, web/scss/style.scss */
-.board .pick.oselected {
-  background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #12190f));
-  background: linear-gradient(to bottom, #1b2617 0%, #12190f 51%);
 }
 
 /* line 56, web/scss/style.scss */
@@ -113,28 +107,30 @@
   margin-right: -95%;
   background-color: #3f5737;
   min-height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#141b21), color-stop(50%, #41494f), to(#141b21));
+  background: linear-gradient(to bottom, #141b21 0%, #41494f 50%, #141b21 100%);
 }
 
-/* line 85, web/scss/style.scss */
+/* line 86, web/scss/style.scss */
 .board .picks .removing {
   background: -webkit-gradient(linear, left top, left bottom, from(#400406), color-stop(51%, #7A4419));
   background: linear-gradient(to bottom, #400406 0%, #7A4419 51%);
 }
 
 @media all and (max-width: 62.5em) {
-  /* line 97, web/scss/style.scss */
+  /* line 98, web/scss/style.scss */
   .board .pick .match {
     font-size: 12px;
   }
-  /* line 99, web/scss/style.scss */
+  /* line 100, web/scss/style.scss */
   .board .pick .match .oteamname {
     display: none;
   }
-  /* line 103, web/scss/style.scss */
+  /* line 104, web/scss/style.scss */
   .board .pick .kickoff {
     display: none;
   }
-  /* line 106, web/scss/style.scss */
+  /* line 107, web/scss/style.scss */
   .board .pick .confidence {
     padding: 5px !important;
     background-image: none !important;
@@ -144,20 +140,20 @@
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 118, web/scss/style.scss */
+  /* line 119, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
 }
 
-/* line 124, web/scss/style.scss */
+/* line 125, web/scss/style.scss */
 input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
 }
 
-/* line 129, web/scss/style.scss */
+/* line 130, web/scss/style.scss */
 .confidence-table {
   display: none;
 }

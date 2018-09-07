@@ -1,3 +1,7 @@
+$picked: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+$notpicked: linear-gradient(to bottom,#141b21 0%,#41494f 50%,#141b21 100%);
+$invalid: linear-gradient(to bottom,#400406 0%,#7A4419 51%);
+
 .board {
   padding-top:20px;
   padding-bottom:20px;
@@ -16,7 +20,7 @@
     box-sizing: border-box;
     cursor: grab;
     user-select: none;
-    background: linear-gradient(to bottom,#141b21 0%,#41494f 50%,#141b21 100%);
+    background: $notpicked;
     color: white;
     .confidence {
       padding-left: 40px;
@@ -49,12 +53,8 @@
     .kickoff {
       font-size: 10px;
     }
-
-    &.oselected {
-      background: linear-gradient(to bottom,#1b2617 0%,darken(#3f5737, 20%) 51%);
-    }
     &.selected {
-      background: linear-gradient(to bottom,#1b2617 0%,#3f5737 51%);
+      background: $picked;
       cursor: auto;
       .confidence {
         background-image:url(http://mfl.hazelknot.com/images/movegrey.svg);
@@ -82,9 +82,10 @@
     margin-right: -95%;
     background-color:#3f5737;
     min-height: 30px;
+    background: $notpicked;
     .removing {
 
-      background: linear-gradient(to bottom,#400406 0%,#7A4419 51%);
+      background: $invalid
     }
   }
 
