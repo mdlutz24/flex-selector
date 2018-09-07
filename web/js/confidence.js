@@ -153,7 +153,7 @@ if (typeof franchise_id != 'undefined' &&
             var $sortable = $(this);
             $locks.each(function(){
               var pos = $(this).data('position');
-              $(this).insertAfter($('> div:not(.ui-sortable-helper)', $sortable).eq(pos));
+              $(this).insertAfter($('> div', $sortable).eq(pos));
             });
             $lockhelper.remove();
 
