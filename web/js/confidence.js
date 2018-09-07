@@ -147,11 +147,25 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
+            var index = $('.ui-sortable-helper', this).index();
+            var $lockhelper = $('<div></div>').prependTo(this);
+            var $locks = $('.locked', this).detach();
+            var $sortable = $(this);
+            $locks.each(function(){
+              var pos = $this.data('position');
+              if ($this.data('position') > index) {
+                pos++;
+              }
+              $this.insertAfter($('div', $sortable).eq(pos));
+            });
+            $lockhelper.remove();
+
+
             var $form = $('form input[name=TYPE]').parent();
             var $table = $('table', $form);
             $helper = ui.helper;
-            var conf = $table.find('select').length;
-            var $picklist = $(this).children('.pick:not(.ui-sortable-helper)');
+            var conf = $('select', $table).length;
+            var $picklist = $('.pick:not(.ui-sortable-helper)', this);
             $picklist.each(function () {
               $(this).data('conf', conf)
             //  $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
