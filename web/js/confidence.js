@@ -152,7 +152,7 @@ if (typeof franchise_id != 'undefined' &&
             var $locks = $('.locked', this).detach();
             var $sortable = $(this);
             $locks.each(function(){
-              var pos = $this.data('position');
+              var pos = $(this).data('position');
               if ($(this).data('position') > index) {
                 pos++;
               }
