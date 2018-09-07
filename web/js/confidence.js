@@ -108,6 +108,12 @@ if (typeof franchise_id != 'undefined' &&
 
 
         $picks.sortable({
+          activate: function(event, ui) {
+            alert('activate');
+          },
+          deactivate: function(event, ui) {
+            alert('deactivate');
+          },
           receive: function (event, ui) {
             var $item = ui.item;
             var value = $item.data('value');
@@ -154,7 +160,7 @@ if (typeof franchise_id != 'undefined' &&
             });
             $(this).find('.pick.ui-sortable-helper .confidence').html($(this).children('.ui-sortable-placeholder').data('conf').toString());
 
-            $sortable = $(this);
+            /*$sortable = $(this);
             $statics = $('.static', this).detach();
             $helper = $('<div></div>').prependTo(this);
             $statics.each(function(){
@@ -163,14 +169,15 @@ if (typeof franchise_id != 'undefined' &&
 
               $this.insertAfter($('div', $sortable).eq(target));
             });
-            $helper.remove();
+            $helper.remove(); */
           },
           items: '> :not(.static)',
           start: function(){
-            $('.static', this).each(function(){
+            alert('start');
+            /*$('.static', this).each(function(){
               var $this = $(this);
               $this.data('pos', $this.index());
-            });
+            });*/
           }
         });
 
@@ -206,9 +213,6 @@ if (typeof franchise_id != 'undefined' &&
               var team = match.team[j];
               var teamid = team.id
               var spread = team.spread
-              //if(franchise_id == "0001") {
-                // $(".pick." + team.id + " .match").html($(".pick." + team.id + " .match").html() + "(" + spread + ")");
-              //}
               $(".pick." + team.id+ " .kickoff").html("Kickoff: " + kickoff.toDateString() + " " +kickoff.toLocaleTimeString())
             }
 
