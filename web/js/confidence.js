@@ -177,12 +177,7 @@ if (typeof franchise_id != 'undefined' &&
         $board.find('.hometeams .pick, .awayteams .pick').draggable({
           helper: function (a, b) {
             var $helper = $(this).clone();
-            $helper.data('name', $(this).data('name'));
-            $helper.data('otype', $(this).data('otype'));
-            $helper.data('type', $(this).data('type'));
-            $helper.data('value', $(this).data('value'));
-            $helper.data('opponent', $(this).data('opponent'));
-            $helper.data('selectname', $(this).data('selectname'));
+            $helper.data($(this).data());
             return $helper;
           },
           cancel: '.selected, .locked',

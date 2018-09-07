@@ -30,6 +30,7 @@
       padding-right: 7px;
     }
     .locked {
+      filter:brightness(60%);
       .confidence {
         background-image: url(http://mfl.hazelknot.com/images/movegrey.svg)
       }
