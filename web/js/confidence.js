@@ -109,10 +109,10 @@ if (typeof franchise_id != 'undefined' &&
 
         $picks.sortable({
           activate: function(event, ui) {
-            alert('activate');
+            //alert('activate');
           },
           deactivate: function(event, ui) {
-            alert('deactivate');
+            //alert('deactivate');
           },
           receive: function (event, ui) {
             var $item = ui.item;
