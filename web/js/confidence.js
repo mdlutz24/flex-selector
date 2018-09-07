@@ -148,7 +148,7 @@ if (typeof franchise_id != 'undefined' &&
           },
           change: function(event, ui) {
             var $form = $('form input[name=TYPE]').parent();
-            var $table = $form.find('table');
+            var $table = $('table', $form);
             $helper = ui.helper;
             var conf = $table.find('select').length;
             var $picklist = $(this).children('.pick:not(.ui-sortable-helper)');
@@ -173,11 +173,9 @@ if (typeof franchise_id != 'undefined' &&
           },
           items: '> :not(.static)',
           start: function(){
-            alert('start');
-            /*$('.static', this).each(function(){
-              var $this = $(this);
-              $this.data('pos', $this.index());
-            });*/
+            $('.locked', this).each(function(){
+              $(this).data('position', $(this).index);
+            });
           }
         });
 
