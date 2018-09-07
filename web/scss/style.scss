@@ -82,7 +82,10 @@ $invalid: linear-gradient(to bottom,#400406 0%,#7A4419 51%);
     margin-right: -95%;
     background-color:#3f5737;
     min-height: 30px;
-    background: $picked;
+    .pick {
+      background: $picked;
+    }
+
     .removing {
       background: $invalid
     }

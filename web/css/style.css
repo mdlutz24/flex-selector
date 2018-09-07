@@ -107,30 +107,34 @@
   margin-right: -95%;
   background-color: #3f5737;
   min-height: 30px;
+}
+
+/* line 85, web/scss/style.scss */
+.board .picks .pick {
   background: -webkit-gradient(linear, left top, left bottom, from(#1b2617), color-stop(51%, #3f5737));
   background: linear-gradient(to bottom, #1b2617 0%, #3f5737 51%);
 }
 
-/* line 86, web/scss/style.scss */
+/* line 89, web/scss/style.scss */
 .board .picks .removing {
   background: -webkit-gradient(linear, left top, left bottom, from(#400406), color-stop(51%, #7A4419));
   background: linear-gradient(to bottom, #400406 0%, #7A4419 51%);
 }
 
 @media all and (max-width: 62.5em) {
-  /* line 97, web/scss/style.scss */
+  /* line 100, web/scss/style.scss */
   .board .pick .match {
     font-size: 12px;
   }
-  /* line 99, web/scss/style.scss */
+  /* line 102, web/scss/style.scss */
   .board .pick .match .oteamname {
     display: none;
   }
-  /* line 103, web/scss/style.scss */
+  /* line 106, web/scss/style.scss */
   .board .pick .kickoff {
     display: none;
   }
-  /* line 106, web/scss/style.scss */
+  /* line 109, web/scss/style.scss */
   .board .pick .confidence {
     padding: 5px !important;
     background-image: none !important;
@@ -140,14 +144,14 @@
 }
 
 @media only screen and (max-width: 62.5em) {
-  /* line 118, web/scss/style.scss */
+  /* line 121, web/scss/style.scss */
   #homepagecolumn1, #homepagecolumn2, #homepagecolumn3, #homepagecolumn4, #homepagecolumn5, #homepagecolumn6, #homepagecolumn7, #homepagecolumn8, .two_column_layout, table.h2hmatchups, table.scoresummary, .mobile-view {
     width: 100% !important;
     float: left;
   }
 }
 
-/* line 124, web/scss/style.scss */
+/* line 127, web/scss/style.scss */
 input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
