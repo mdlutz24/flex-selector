@@ -92,9 +92,7 @@ if (typeof franchise_id != 'undefined' &&
           var rank = count - i;
 
           $matches[i].children('.confidence').html(rank.toString());
-          if ($matches[i].hasClass('locked')) {
-            $matches
-          }
+
           $picks.append($matches[i].removeClass('selected game-picked').data('position'));
         }
         var $board = $("<div class='board'></div>");
