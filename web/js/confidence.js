@@ -199,6 +199,7 @@ if (typeof franchise_id != 'undefined' &&
             console.log('starting');
             $('.locked', this).each(function(){
               $(this).data('position', $(this).index());
+              console.log('starting: index ' + $(this).index());
             });
           }
         });
