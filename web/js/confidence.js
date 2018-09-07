@@ -90,11 +90,12 @@ if (typeof franchise_id != 'undefined' &&
         });
         for (var i = 0; i < $matches.length; i++ ) {
           var rank = count - i;
-          /*if (rank == 12 ) {
-            $matches[i].addClass('static locked');
-          } */
+
           $matches[i].children('.confidence').html(rank.toString());
-          $picks.append($matches[i].removeClass('selected game-picked'));
+          if ($matches[i].hasClass('locked')) {
+            $matches
+          }
+          $picks.append($matches[i].removeClass('selected game-picked').data('position'));
         }
         var $board = $("<div class='board'></div>");
         $picks.height(count * 45);
@@ -123,6 +124,7 @@ if (typeof franchise_id != 'undefined' &&
             var type = $item.data('type');
             $('.picks .' + opponent).remove();
 
+            console.log('receive stop');
             var index = $('.ui-sortable-helper', this).index();
             var $lockhelper = $('<div></div>').prependTo(this);
             var $locks = $('.locked', this).detach();
@@ -158,6 +160,7 @@ if (typeof franchise_id != 'undefined' &&
 
           },
           change: function(event, ui) {
+            console.log('change stop');
             var index = $('.ui-sortable-helper', this).index();
             var $lockhelper = $('<div></div>').prependTo(this);
             var $locks = $('.locked', this).detach();
@@ -195,6 +198,7 @@ if (typeof franchise_id != 'undefined' &&
           },
           items: '> :not(.static)',
           start: function(){
+            console.log('starting');
             $('.locked', this).each(function(){
               $(this).data('position', $(this).index());
             });
