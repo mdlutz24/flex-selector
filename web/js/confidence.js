@@ -153,10 +153,7 @@ if (typeof franchise_id != 'undefined' &&
             var $sortable = $(this);
             $locks.each(function(){
               var pos = $(this).data('position');
-              if ($(this).data('position') > index) {
-                pos++;
-              }
-              $(this).insertAfter($('div', $sortable).eq(pos));
+              $(this).insertAfter($('> div:not(.ui-sortable-helper)', $sortable).eq(pos));
             });
             $lockhelper.remove();
 
@@ -188,7 +185,7 @@ if (typeof franchise_id != 'undefined' &&
           items: '> :not(.static)',
           start: function(){
             $('.locked', this).each(function(){
-              $(this).data('position', $(this).index);
+              $(this).data('position', $(this).index());
             });
           }
         });
