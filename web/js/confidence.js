@@ -153,10 +153,10 @@ if (typeof franchise_id != 'undefined' &&
             var $sortable = $(this);
             $locks.each(function(){
               var pos = $this.data('position');
-              if ($this.data('position') > index) {
+              if ($(this).data('position') > index) {
                 pos++;
               }
-              $this.insertAfter($('div', $sortable).eq(pos));
+              $(this).insertAfter($('div', $sortable).eq(pos));
             });
             $lockhelper.remove();
 
