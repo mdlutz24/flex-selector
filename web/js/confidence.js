@@ -129,7 +129,7 @@ if (typeof franchise_id != 'undefined' &&
             var otype = $item.data('otype');
             var type = $item.data('type');
             $('.picks .' + opponent).remove();
-            ui.item.removeClass('incoming')
+            ui.helper.removeClass('incoming')
 
             console.log('receive stop');
             var index = $('.ui-sortable-helper', this).index();
@@ -239,7 +239,7 @@ if (typeof franchise_id != 'undefined' &&
               $(this).children('.confidence').html(conf.toString());
               conf--;
             });
-            $(this).find('.pick.ui-sortable-helper .confidence').html($(this).children('.ui-sortable-placeholder').data('conf').toString());
+
             $('.incoming .confidence', $(this)).html('');
           },
           stop: function(event) {
