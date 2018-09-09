@@ -220,6 +220,7 @@ if (typeof franchise_id != 'undefined' &&
           out: function(event, ui) {
             logevent(event);
           //  console.log('out stop');
+            if (ui.helper == null) { return;}
             var index = $('.ui-sortable-helper', this).index();
             var $lockhelper = $('<div></div>').prependTo(this);
             var $locks = $('.locked', this).detach();
