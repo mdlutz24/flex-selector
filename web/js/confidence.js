@@ -226,6 +226,20 @@ if (typeof franchise_id != 'undefined' &&
               $(this).insertAfter($('> div:not(.ui-draggable.ui-sortable-placeholder)', $sortable).eq(pos));
             });
             $lockhelper.remove();
+
+            var $form = $('form input[name=TYPE]').parent();
+            var $table = $('table', $form);
+            $helper = ui.helper;
+            var conf = $('select', $table).length;
+            var $picklist = $('.pick:not(.ui-sortable-helper,.ui-draggable.ui-sortable-placeholder)', this);
+            $picklist.each(function () {
+              $(this).data('conf', conf)
+              //  $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
+              $(this).children('.confidence').html(conf.toString());
+              conf--;
+            });
+            $(this).find('.pick.ui-sortable-helper .confidence').html($(this).children('.ui-sortable-placeholder').data('conf').toString());
+
           },
           stop: function(event) {
             logevent(event)
