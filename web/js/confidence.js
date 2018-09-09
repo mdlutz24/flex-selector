@@ -111,7 +111,7 @@ if (typeof franchise_id != 'undefined' &&
          // console.log($('.picks .locked').length + ' locked');
           console.log($('.picks .incoming').length + ' incoming detected');
           console.log("Locked index: " + $('.picks .pick.PHI').index());
-          console.log("Locked index (saved): " + $('.picks .pick.PHI').data('.position'));
+          console.log("Locked index (saved): " + $('.picks .locked').data('position'));
         }
 
 
