@@ -106,10 +106,11 @@ if (typeof franchise_id != 'undefined' &&
         }
         function logevent(event) {
           console.log (event.type + ' event');
-          console.log($('.picks > div').length + ' divs in picklist');
-          console.log($('.picks > .pick').length + ' picks in picklist');
-          console.log($('.picks .locked').length + ' locked');
-          console.log($('.picks .ui-draggable').length + ' incoming detected');
+        //  console.log($('.picks > div').length + ' divs in picklist');
+        //  console.log($('.picks > .pick').length + ' picks in picklist');
+         // console.log($('.picks .locked').length + ' locked');
+          console.log($('.picks .incoming').length + ' incoming detected');
+          console.log("Locked index: " + $('.picks .pick.PHI').index());
         }
 
 
