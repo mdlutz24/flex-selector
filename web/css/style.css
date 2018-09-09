@@ -156,3 +156,8 @@ input[type=submit]:hover:disabled {
   background-color: #0d140b;
   cursor: not-allowed;
 }
+
+/* line 132, web/scss/style.scss */
+.confidence-table {
+  display: none;
+}

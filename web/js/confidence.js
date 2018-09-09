@@ -105,6 +105,7 @@ if (typeof franchise_id != 'undefined' &&
           $form.find('input[type=submit]').prop('disabled', true);
         }
         function logevent(event) {
+          return;
           console.log (event.type + ' event');
         //  console.log($('.picks > div').length + ' divs in picklist');
         //  console.log($('.picks > .pick').length + ' picks in picklist');
