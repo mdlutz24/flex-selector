@@ -129,6 +129,7 @@ if (typeof franchise_id != 'undefined' &&
             var otype = $item.data('otype');
             var type = $item.data('type');
             $('.picks .' + opponent).remove();
+            ui.item.removeClass('incoming')
 
             console.log('receive stop');
             var index = $('.ui-sortable-helper', this).index();
@@ -223,7 +224,7 @@ if (typeof franchise_id != 'undefined' &&
             var $sortable = $(this);
             $locks.each(function(){
               var pos = $(this).data('position');
-              $(this).insertAfter($('> div:not(.ui-draggable.ui-sortable-placeholder)', $sortable).eq(pos));
+              $(this).insertAfter($('> div:not(.incoming.ui-sortable-placeholder)', $sortable).eq(pos));
             });
             $lockhelper.remove();
 
@@ -231,7 +232,7 @@ if (typeof franchise_id != 'undefined' &&
             var $table = $('table', $form);
             $helper = ui.helper;
             var conf = $('select', $table).length;
-            var $picklist = $('.pick:not(.ui-sortable-helper,.ui-draggable.ui-sortable-placeholder)', this);
+            var $picklist = $('.pick:not(.ui-sortable-helper,.incoming.ui-sortable-placeholder)', this);
             $picklist.each(function () {
               $(this).data('conf', conf)
               //  $("select[name='" + $(this).data('selectname') + "']").val(conf.toString());
@@ -239,7 +240,7 @@ if (typeof franchise_id != 'undefined' &&
               conf--;
             });
             $(this).find('.pick.ui-sortable-helper .confidence').html($(this).children('.ui-sortable-placeholder').data('conf').toString());
-
+            $('.incoming .confidence', $(this)).html('');
           },
           stop: function(event) {
             logevent(event)
@@ -251,6 +252,7 @@ if (typeof franchise_id != 'undefined' &&
           helper: function (a, b) {
             var $helper = $(this).clone();
             $helper.data($(this).data());
+            $helper.addClass('incoming');
             return $helper;
           },
           cancel: '.selected, .locked',
