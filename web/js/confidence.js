@@ -27,6 +27,8 @@ if (typeof franchise_id != 'undefined' &&
           if ($(this).prop('disabled')) {
             if ($(this).val() != '-') {
               count++;
+            } else {
+              $('body').removeClass('use-new');
             }
           }
           else {
@@ -38,6 +40,10 @@ if (typeof franchise_id != 'undefined' &&
 
       if (thisProgram == 'options_121') {
         $('body').addClass('use-new');
+        getCount();
+        if (!$('body').hasClass('use-new')) {
+          return;
+        }
        // $('select[name="RANKMIN,LAR"]').prop('disabled', true);
        // $('input[name="PICKMIN,LAR"]').prop('disabled', true);
         var $form = $('form input[name=TYPE]').parent();
