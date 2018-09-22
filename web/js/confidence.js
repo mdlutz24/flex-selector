@@ -38,8 +38,8 @@ if (typeof franchise_id != 'undefined' &&
 
       if (thisProgram == 'options_121') {
         $('body').addClass('use-new');
-        $('select[name="RANKMIN,LAR"]').prop('disabled', true);
-        $('input[name="PICKMIN,LAR"]').prop('disabled', true);
+       // $('select[name="RANKMIN,LAR"]').prop('disabled', true);
+       // $('input[name="PICKMIN,LAR"]').prop('disabled', true);
         var $form = $('form input[name=TYPE]').parent();
         if (typeof $form == 'undefined') return;
         var $table = $form.find('table');
