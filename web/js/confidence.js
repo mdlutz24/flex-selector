@@ -17,7 +17,29 @@ if (typeof franchise_id != 'undefined' &&
 
   (function ($, window, document, franchise_id, completedWeek, liveScoringWeek, thisProgram) {
     $(document).ready(function () {
+
+      function getCount(){
+        var $form = $('form input[name=TYPE]').parent();
+        var $table = $form.find('table');
+        var $selects = $table.find('select');
+        var count = 0;
+        $selects.each(function(){
+          if ($(this).prop('disabled')) {
+            if ($(this).val() != '-') {
+              count++;
+            }
+          }
+          else {
+            count++;
+          }
+        });
+        return count;
+      }
+
       if (thisProgram == 'options_121') {
+        $('body').addclass('use-new');
+        $('select[name="RANKMIN,LAR"]').prop('disabled', true);
+        $('input[name="PICKMIN,LAR"]').prop('disabled', true);
         var $form = $('form input[name=TYPE]').parent();
         if (typeof $form == 'undefined') return;
         var $table = $form.find('table');
@@ -148,7 +170,7 @@ if (typeof franchise_id != 'undefined' &&
             $('.' + type + 'teams .' + value).removeClass('oselected').addClass('selected game-picked');
             $('.' + otype + 'teams .' + opponent).removeClass('selected').addClass('oselected game-picked');
             $('input[value=' + value + ']').prop('checked', true);
-            if ($(".picks .pick").length = $(".hometeams .pick").length) {
+            if ($(".picks .pick").length = getCount()) {
               $('form input[name=TYPE]').parent().find('input[type=submit]').prop('disabled', false);
             }
 
@@ -159,7 +181,9 @@ if (typeof franchise_id != 'undefined' &&
             var $form = $('form input[name=TYPE]').parent();
             var $table = $form.find('table');
             $helper = ui.helper;
-            var conf = $table.find('select').val('-').length;
+            var $selects = $table.find('select').val('-');
+
+            var conf = getCount();
             var $picklist = $(this).children('.pick');
             $picklist.each(function () {
               $(this).data('conf', conf)
@@ -187,7 +211,7 @@ if (typeof franchise_id != 'undefined' &&
             var $form = $('form input[name=TYPE]').parent();
             var $table = $('table', $form);
             $helper = ui.helper;
-            var conf = $('select', $table).length;
+            var conf = getCount();
             var $picklist = $('.pick:not(.ui-sortable-helper)', this);
             $picklist.each(function () {
               $(this).data('conf', conf)
@@ -235,7 +259,7 @@ if (typeof franchise_id != 'undefined' &&
             var $form = $('form input[name=TYPE]').parent();
             var $table = $('table', $form);
             $helper = ui.helper;
-            var conf = $('select', $table).length;
+            var conf = getCount();
             var $picklist = $('.pick:not(.ui-sortable-helper,.incoming.ui-sortable-placeholder)', this);
             $picklist.each(function () {
               $(this).data('conf', conf)

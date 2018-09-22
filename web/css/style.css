@@ -157,7 +157,17 @@ input[type=submit]:hover:disabled {
   cursor: not-allowed;
 }
 
-/* line 132, web/scss/style.scss */
-.confidence-table {
+/* line 133, web/scss/style.scss */
+.board {
   display: none;
+}
+
+/* line 138, web/scss/style.scss */
+.use-new .confidence-table {
+  display: none;
+}
+
+/* line 141, web/scss/style.scss */
+.use-new .board {
+  display: block;
 }

@@ -129,6 +129,16 @@ input[type=submit]:hover:disabled {
   cursor: not-allowed;
 }
 
-.confidence-table {
+
+.board {
   display: none;
+}
+
+.use-new {
+  .confidence-table {
+    display: none;
+  }
+  .board {
+    display: block;
+  }
 }
