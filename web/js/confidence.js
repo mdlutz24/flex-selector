@@ -112,6 +112,7 @@ if (typeof franchise_id != 'undefined' &&
           $awayteams.append($awayteam);
 
         });
+        $count = getCount();
 
         $matches.sort(function (a, b) {
           return b.data('conf') - a.data('conf')
