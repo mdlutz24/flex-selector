@@ -28,7 +28,7 @@ if (typeof franchise_id != 'undefined' &&
             if ($(this).val() != '-') {
               count++;
             } else {
-              $('body').removeClass('use-new');
+           //   $('body').removeClass('use-new');
             }
           }
           else {
