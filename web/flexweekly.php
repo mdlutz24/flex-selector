@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?
+<?php
 $FLEX_POSITIONS=array('RB', 'WR', 'TE');
 $NUM_STARTERS=array('RB'=> 3, 'WR'=> 3, 'TE'=> 2);
 $max_valid= array('RB' => 2, 'WR' => 2, 'TE' => 1);
