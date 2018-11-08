@@ -127,8 +127,9 @@ if (typeof franchise_id != 'undefined' &&
         }
         var $board = $("<div class='board'></div>");
         $picks.height(count * 45);
-        $board.append($hometeams);
         $board.append($awayteams);
+        $board.append($hometeams);
+
         $board.append($picks);
         $table.after($board);
        // if ($picks.children().length != $hometeams.children().length) {
