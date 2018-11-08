@@ -161,8 +161,10 @@ foreach ($weeklyResults as $weeklyResult){
 					$pos=$player['id']==$player_id?'FLEX':getPos($player['id']);
 					$id=$player['id'];
 					$score=$player['score'];
+					echo "  entering rosters, team, player, week $team_id, $id, $week\n";
 					$query="INSERT INTO rosters (team_id, player_id, week) VALUES ('$team_id', '$id', '$week')";
 					$db->query($query);
+                  echo "  entering scores, team, player, pos, week, score $team_id, $id, $pos, $week, $score\n";
 					$query="INSERT INTO scores (team_id, player_id, position, week, score)
 									VALUES ('$team_id', '$id', '$pos', '$week', '$score')";
 					$db->query($query);
