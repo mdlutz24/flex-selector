@@ -7,8 +7,8 @@
 	<title>
 		My Football Picks
 	</title>
-<link rel="stylesheet" href="http://www9.myfantasyleague.com/fflnetdynamic2013/14936.css" type="text/css"  />
-<link rel="stylesheet" href="http://www9.myfantasyleague.com/skins/style_4/4d.css" type="text/css"  />
+<link rel="stylesheet" href="http://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
+<link rel="stylesheet" href="http://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
 	<style type="text/css">
 		@import "iframe.css";
 		.sort{cursor:pointer;}
