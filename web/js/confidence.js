@@ -61,10 +61,10 @@ if (typeof franchise_id != 'undefined' &&
           if (!$(this).hasClass('oddtablerow') && !$(this).hasClass('eventablerow')) return;
           count++;
           var $awaytd = $(this).children('td:first-child');
-          var $awayradio = $hometd.children('input');
+          var $awayradio = $awaytd.children('input');
           var $conf = $(this).find('select');
           var $hometd = $(this).children('td:nth-child(2)');
-          var $homeradio = $awaytd.children('input');
+          var $homeradio = $hometd.children('input');
 
           var $hometeam = $("<div class='hometeam home pick'></div>");
           $hometeam.html("<div class='confidence'></div><div class='match'><span class='teamname'>" + $hometd.children('label').text()+ "</span> <span class='oteamname'>vs " + $awaytd.children('label').text() + "</span></div><div class='kickoff'></div>");
