@@ -84,7 +84,7 @@
 }
 
 /* line 64, web/scss/style.scss */
-.board .hometeams {
+.board .awayteams {
   width: 25%;
   float: left;
   margin-left: 5%;
@@ -92,7 +92,7 @@
 }
 
 /* line 71, web/scss/style.scss */
-.board .awayteams {
+.board .hometeams {
   width: 25%;
   float: left;
   margin-left: 35%;
