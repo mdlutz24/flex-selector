@@ -60,11 +60,11 @@ if (typeof franchise_id != 'undefined' &&
         $rows.each(function () {
           if (!$(this).hasClass('oddtablerow') && !$(this).hasClass('eventablerow')) return;
           count++;
-          var $hometd = $(this).children('td:first-child');
-          var $homeradio = $hometd.children('input');
+          var $awaytd = $(this).children('td:first-child');
+          var $awayradio = $hometd.children('input');
           var $conf = $(this).find('select');
-          var $awaytd = $(this).children('td:nth-child(2)');
-          var $awayradio = $awaytd.children('input');
+          var $hometd = $(this).children('td:nth-child(2)');
+          var $homeradio = $awaytd.children('input');
 
           var $hometeam = $("<div class='hometeam home pick'></div>");
           $hometeam.html("<div class='confidence'></div><div class='match'><span class='teamname'>" + $hometd.children('label').text()+ "</span> <span class='oteamname'>vs " + $awaytd.children('label').text() + "</span></div><div class='kickoff'></div>");
@@ -108,8 +108,9 @@ if (typeof franchise_id != 'undefined' &&
             $matches.push($hometeam.clone(true));
           }
 
-          $hometeams.append($hometeam);
           $awayteams.append($awayteam);
+          $hometeams.append($hometeam);
+
 
         });
         count = getCount();
