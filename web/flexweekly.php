@@ -168,6 +168,7 @@ foreach ($weeklyResults as $weeklyResult){
 					$query="INSERT INTO scores (team_id, player_id, position, week, score)
 									VALUES ('$team_id', '$id', '$pos', '$week', '$score')";
 					$db->query($query);
+					echo "Executing '$query'\n"
 					echo "     added player $id as $pos\n"; 
 				}
 			}
