@@ -20,27 +20,30 @@
 
 </head>
 <body><?php
-if ($_SERVER['HTTP_HOST']=='dev.myfootballpicks.org') {
-	$host='localhost';
-	$user='root';
-	$pass='kahless';
-} else {
-	$host='localhost';
-	$user='mfl';
-	$pass='AyOkUPmRwM3yvoZs';
+function getDB() {
+  static $db = FALSE;
+  if (!$db) {
+    $host='localhost';
+    $user='mfl';
+    $pass='AyOkUPmRwM3yvoZs';
+    $db = new mysqli($host, $user, $pass, 'mfl');
+  }
+  return $db;
 }
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+define('YEAR', 2018);
+define('L_ID', 46324);
+define('SEASON_START', '2018-09-04 04:00:00');
+define('HOST', 'www71.myfantasyleague.com/');
+define('PROTOCOL', 'https://');
 
-$connect = mysql_connect($host, $user, $pass) or die("SQL error");
-mysql_select_db("mfl") or die (mysql_error());
+$db = getDB();
+
 $sort='total';
 extract($_GET);
 if (!isset($week) or $week==''){
-	$dbStartDate="2013-09-03 04:00:00";
 	$currentDate=time();
-	$startDate=strtotime($dbStartDate);
+	$startDate=strtotime(SEASON_START);
 	$week=ceil(($currentDate-$startDate)/604800);
 	$week=$week<1?1:$week;
 	$week=$week>21?21:$week;
@@ -61,22 +64,22 @@ else if ($sort=='team')
 else
 	$query="SELECT name, id as tid FROM teams ORDER BY (SELECT SUM(score) FROM scores WHERE scores.team_id=tid && position='$sort') DESC";
 //echo $query;
-$result=mysql_query($query) or die(mysql_error());
+$result=$db->query($query);
 $trclass='oddtablerow';
 
-while ($row=mysql_fetch_array($result)){
+while ($row=$result->fetch_assoc()){
 	extract($row);	
 	echo "<tr class='$trclass'><td>$name</td>";
 	foreach($positions as $position){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position'";
-		$scores=mysql_query($query) or die(mysql_error());
-		$score=mysql_fetch_array($scores);
+		$scores=$db->query($query);
+		$score=$scores->fetch_assoc();
 		extract($score);
 		echo "<td>$pos_score</td>";
 	}
 	$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid'";
-	$scores=mysql_query($query) or die(mysql_error());
-	$score=mysql_fetch_array($scores);
+    $scores=$db->query($query);
+    $score=$scores->fetch_assoc();
 	extract($score);
 	echo "<td>$pos_score</td></tr>";
 	$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
@@ -86,8 +89,8 @@ echo "</tbody></table>";
 $query="SELECT name, id as tid FROM teams ORDER BY name ASC";
 $col=1;
 echo "<table width=100%>";
-$teams=mysql_query($query) or die(mysql_error());
-while ($team=mysql_fetch_array($teams)){
+$teams=$db->query($query);
+while ($team=$teams->fetch_assoc()){
 	extract($team);
 	if ($col==1) echo "<tr>";
 	echo "<td width=50%>";
@@ -101,16 +104,16 @@ while ($team=mysql_fetch_array($teams)){
 		echo "<tr class='$trclass'><td>$position</td>";
 		for ($week=1;$week<17;$week++){
 			$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position' AND week='$week'";
-			$result=mysql_query($query) or die(mysql_error());
-			$row=mysql_fetch_array($result);
+			$result=$db->query($query);
+			$row=$result->fetch_assoc();
 			extract($row);
 			//if ($pos_score==0) echo "<td> - </td>";
 			//else 
 				echo "<td>$pos_score</td>";
 		}
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position'";
-		$result=mysql_query($query) or die(mysql_error());
-		$row=mysql_fetch_array($result);
+        $result=$db->query($query);
+        $row=$result->fetch_assoc();
 		extract($row);
 		echo "<td>$pos_score</td></tr>";
 		$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
@@ -118,16 +121,16 @@ while ($team=mysql_fetch_array($teams)){
 	echo "<tr class='$trclass'><td>TOT</td>";
 	for ($week=1;$week<17;$week++){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND week='$week'";
-		$result=mysql_query($query) or die(mysql_error());
-		$row=mysql_fetch_array($result);
+        $result=$db->query($query);
+        $row=$result->fetch_assoc();
 		extract($row);
 		//if ($pos_score==0) echo "<td> - </td>";
 		//else 
 		echo "<td>$pos_score</td>";
 	}
 	$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid'";
-	$result=mysql_query($query) or die(mysql_error());
-	$row=mysql_fetch_array($result);
+    $result=$db->query($query);
+    $row=$result->fetch_assoc();
 	extract($row);
 	echo "<td>$pos_score</td></tr></table>";
 	echo "</td>";
