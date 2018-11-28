@@ -145,12 +145,12 @@ foreach ($weeklyResults as $weeklyResult){
  		$franchises =$matchup->franchise;
 		foreach ($franchises as $franchise){
 		    var_dump($processed_franchises);
-		    echo "Processing ${$franchise['id']}";
+		    echo "Processing {$franchise['id']}";
 		    if (in_array($franchise['id'], $processed_franchises)) {
-		        echo "Skipping a second run for ${$franchise['id']}";
+		        echo "Skipping a second run for $\{$franchise['id']}";
 		        continue;
             }
-            $processed_franchises[] = $franchise['id'];
+            $processed_franchises[] = (string) $franchise['id'];
 		//	echo "in franchises\n";
 		//	echo "   Entering data for team {$franchise['id']}\n";
 			$team_id=$franchise['id'];
@@ -198,7 +198,7 @@ foreach ($weeklyResults as $weeklyResult){
           if (in_array($franchise['id'], $processed_franchises)) {
             continue;
           }
-          $processed_franchises[] = $franchise['id'];
+          $processed_franchises[] = (string) $franchise['id'];
 //			echo "in franchises\n";
 			echo "   Entering data for team {$franchise['id']}\n";
 			$team_id=$franchise['id'];
