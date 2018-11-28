@@ -147,7 +147,7 @@ foreach ($weeklyResults as $weeklyResult){
 		    var_dump($processed_franchises);
 		    echo "Processing {$franchise['id']}";
 		    if (in_array($franchise['id'], $processed_franchises)) {
-		        echo "Skipping a second run for $\{$franchise['id']}";
+		        echo "Skipping a second run for {$franchise['id']}";
 		        continue;
             }
             $processed_franchises[] = (string) $franchise['id'];
