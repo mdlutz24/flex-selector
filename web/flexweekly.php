@@ -145,18 +145,19 @@ foreach ($weeklyResults as $weeklyResult){
  		$franchises =$matchup->franchise;
 		foreach ($franchises as $franchise){
 		    if (in_array($franchise['id'], $processed_franchises)) {
+		        echo "Skipping a second run for ${$franchise['id']}";
 		        continue;
             }
             $processed_franchises[] = $franchise['id'];
-			echo "in franchises\n";
-			echo "   Entering data for team {$franchise['id']}\n";
+		//	echo "in franchises\n";
+		//	echo "   Entering data for team {$franchise['id']}\n";
 			$team_id=$franchise['id'];
 			$query="SELECT player_id FROM flex WHERE team_id='$team_id' && week='$week'";
 			echo "      $query\n";
 			$result=$db->query($query);
 
 			if (!$row=$result->fetch_assoc()){
-				 echo "No Flex Found";
+	//			 echo "No Flex Found";
 
 				$player_id=NULL;			
 			} else extract($row);
@@ -169,12 +170,12 @@ foreach ($weeklyResults as $weeklyResult){
 					echo "  entering rosters, team, player, week $team_id, $id, $week\n";
 					$query="INSERT INTO rosters (team_id, player_id, week) VALUES ('$team_id', '$id', '$week')";
 					$db->query($query);
-                  echo "  entering scores, team, player, pos, week, score $team_id, $id, $pos, $week, $score\n";
+            //      echo "  entering scores, team, player, pos, week, score $team_id, $id, $pos, $week, $score\n";
 					$query="INSERT INTO scores (team_id, player_id, position, week, score)
 									VALUES ('$team_id', '$id', '$pos', '$week', '$score')";
 					$db->query($query);
-					echo "Executing '$query'\n";
-					echo "     added player $id as $pos\n"; 
+		//			echo "Executing '$query'\n";
+		//			echo "     added player $id as $pos\n";
 				}
 			}
 
@@ -184,7 +185,7 @@ foreach ($weeklyResults as $weeklyResult){
 					echo "Found {$row->num} $pos\n";
 					if ($row->num>$max_valid[$pos]){
 						$db->query("DELETE FROM scores WHERE team_id='$team_id' AND week=$week and position='$pos'");
-						echo "      Removed $pos from scores due to invalid flex \n";				
+			//			echo "      Removed $pos from scores due to invalid flex \n";
 					}
 				}			
 	
