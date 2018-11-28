@@ -144,6 +144,8 @@ foreach ($weeklyResults as $weeklyResult){
 	foreach ($matchups as $matchup){
  		$franchises =$matchup->franchise;
 		foreach ($franchises as $franchise){
+		    var_dump($processed_franchises);
+		    echo "Processing ${$franchise['id']}";
 		    if (in_array($franchise['id'], $processed_franchises)) {
 		        echo "Skipping a second run for ${$franchise['id']}";
 		        continue;
