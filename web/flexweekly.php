@@ -140,9 +140,14 @@ foreach ($weeklyResults as $weeklyResult){
 	echo "Starting Week $week\n\n";
 	$matchups=$weeklyResult->matchup;
 	$franchises=array();
+	$processed_franchises = [];
 	foreach ($matchups as $matchup){
  		$franchises =$matchup->franchise;
 		foreach ($franchises as $franchise){
+		    if (in_array($franchise['id'], $processed_franchises)) {
+		        continue;
+            }
+            $processed_franchises[] = $franchise['id'];
 			echo "in franchises\n";
 			echo "   Entering data for team {$franchise['id']}\n";
 			$team_id=$franchise['id'];
