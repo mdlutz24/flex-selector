@@ -192,6 +192,10 @@ foreach ($weeklyResults as $weeklyResult){
 	}
 	$franchises=$weeklyResult->franchise;
 		foreach ($franchises as $franchise){
+          if (in_array($franchise['id'], $processed_franchises)) {
+            continue;
+          }
+          $processed_franchises[] = $franchise['id'];
 //			echo "in franchises\n";
 			echo "   Entering data for team {$franchise['id']}\n";
 			$team_id=$franchise['id'];
