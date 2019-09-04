@@ -31,9 +31,9 @@ function getDB() {
   return $db;
 }
 
-define('YEAR', 2018);
+define('YEAR', 2019);
 define('L_ID', 46324);
-define('SEASON_START', '2018-09-04 04:00:00');
+define('SEASON_START', '2019-09-03 04:00:00');
 define('HOST', 'www71.myfantasyleague.com/');
 define('PROTOCOL', 'https://');
 
