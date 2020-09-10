@@ -64,10 +64,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 	<title>
 		Flex Select
 	</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="http://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
-    <link rel="stylesheet" id="skin" href="http://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
-    <link rel="stylesheet" id="responsive" href="http://www71.myfantasyleague.com/skins17/Camo/responsive.css" type="text/css"  />
-    <link rel="stylesheet" id="custom" href="http://mfl.hazelknot.com/css/style.css" type="text/css"  />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="https://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
+    <link rel="stylesheet" id="skin" href="https://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
+    <link rel="stylesheet" id="responsive" href="https://www71.myfantasyleague.com/skins17/Camo/responsive.css" type="text/css"  />
+    <link rel="stylesheet" id="custom" href="https://mfl.hazelknot.com/css/style.css" type="text/css"  />
 <style type='text/css'>
 	body{
 		background-color:transparent;
@@ -84,10 +84,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
     window.addEventListener('message', function(event) {
 
       // IMPORTANT: Check the origin of the data!
-      if (~event.origin.indexOf('http://www71.myfantasyleague.com')) {
+      if (~event.origin.indexOf('https://www71.myfantasyleague.com')) {
         // The data has been sent from your site
 
-        window.parent.postMessage($('#flex-table .report').height(), 'http://www71.myfantasyleague.com');
+        window.parent.postMessage($('#flex-table .report').height(), 'https://www71.myfantasyleague.com');
         // The data sent with postMessage is stored in event.data
         console.log(event.data);
       } else {
@@ -97,7 +97,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
       }
     });
     $('#flex-table .report').on('load', function(){
-      window.parent.postMessage($('#flex-table .report').height(), 'http://www71.myfantasyleague.com');
+      window.parent.postMessage($('#flex-table .report').height(), 'https://www71.myfantasyleague.com');
     })
 </script>
 
