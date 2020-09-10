@@ -10,8 +10,8 @@ include('flex.inc');
 	<title>
 		My Football Picks
 	</title>
-<link rel="stylesheet" href="http://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
-<link rel="stylesheet" href="http://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
+<link rel="stylesheet" href="https://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
+<link rel="stylesheet" href="https://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
 	<style type="text/css">
 		@import "iframe.css";
 		.sort{cursor:pointer;}
