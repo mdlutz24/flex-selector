@@ -3,9 +3,9 @@
 $FLEX_POSITIONS=array('RB', 'WR', 'TE');
 $NUM_STARTERS=array('RB'=> 3, 'WR'=> 3, 'TE'=> 2);
 $max_valid= array('RB' => 2, 'WR' => 2, 'TE' => 1);
-define('YEAR', 2019);
+define('YEAR', 2020);
 define('L_ID', 46324);
-define('SEASON_START', '2019-09-03 04:00:00');
+define('SEASON_START', '2020-09-08 04:00:00');
 define('HOST', 'www71.myfantasyleague.com/');
 define('PROTOCOL', 'https://');
 
