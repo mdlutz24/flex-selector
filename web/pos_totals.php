@@ -1,3 +1,6 @@
+<?php
+include('flex.inc');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--Copyright 2007 Fossit Solutions. All rights reserved-->
@@ -20,22 +23,6 @@
 
 </head>
 <body><?php
-function getDB() {
-  static $db = FALSE;
-  if (!$db) {
-    $host='localhost';
-    $user='mfl';
-    $pass='AyOkUPmRwM3yvoZs';
-    $db = new mysqli($host, $user, $pass, 'mfl');
-  }
-  return $db;
-}
-
-define('YEAR', 2020);
-define('L_ID', 46324);
-define('SEASON_START', '2020-09-08 04:00:00');
-define('HOST', 'www71.myfantasyleague.com/');
-define('PROTOCOL', 'https://');
 
 $db = getDB();
 
