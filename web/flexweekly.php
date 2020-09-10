@@ -18,7 +18,7 @@ loadTeams();
 loadPlayers();
 
 //reload Schedule
-$schedule = getData('nflSchedule', ['L' => L_ID, 'W' => $week]);
+$schedule = getData('nflSchedule', ['W' => $week]);
 loadSchedule($week, $schedule);
 
 // Load season rosters and scores
