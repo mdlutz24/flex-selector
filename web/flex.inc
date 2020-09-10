@@ -20,6 +20,7 @@ define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');
 
 function getData($type, $options = [], $command = 'export') {
+  $args = '';
   foreach($options as $key => $value) {
     $value = urlencode($value);
     $args .= "&$key=$value";
