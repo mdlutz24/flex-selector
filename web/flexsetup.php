@@ -35,7 +35,7 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
     $weeklyResults=getData('weeklyResults', ['L' => L_ID, 'W'=> $week]);
  /*   ?><pre><? print_r($weeklyResults); ?></pre><? die();*/
 
-    $schedule = getData('nflSchedule', ['L' => L_ID, 'W' => $week]);
+    $schedule = getData('nflSchedule', ['W' => $week]);
     $query="SELECT * FROM roster_lock WHERE team_id='$id'";
     $result=getDB()->query($query) ;
     if ($result->num_rows==0){
