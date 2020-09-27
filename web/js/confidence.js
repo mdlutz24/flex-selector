@@ -311,7 +311,7 @@ if (typeof franchise_id != 'undefined' &&
         var nflSchedule;
         var week = $form.children('input[name=WEEK]').val();
         var year = (new Date()).getFullYear();
-        $.getJSON("http://www71.myfantasyleague.com/" + year + "/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
+        $.getJSON("https://www71.myfantasyleague.com/" + year + "/export", {TYPE: 'nflSchedule', W: week, JSON:1} , function(data){
           for(var i = 0; i< data.nflSchedule.matchup.length; i++) {
             var match = data.nflSchedule.matchup[i];
             var kickoff = new Date(match.kickoff * 1000)
