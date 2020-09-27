@@ -190,9 +190,8 @@ if (typeof franchise_id != 'undefined' &&
             var $form = $('form input[name=TYPE]').parent();
             var $table = $form.find('table');
             $helper = ui.helper;
-            var $selects = $table.find('select').val('-');
-
             var conf = getCount();
+            var $selects = $table.find('select').val('-');
             var $picklist = $(this).children('.pick');
             $picklist.each(function () {
               $(this).data('conf', conf)
