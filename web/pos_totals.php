@@ -10,8 +10,10 @@ include('flex.inc');
 	<title>
 		My Football Picks
 	</title>
-<link rel="stylesheet" href="https://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css"  />
-<link rel="stylesheet" href="https://www71.myfantasyleague.com/skins17/Camo/Camo.css" type="text/css"  />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="https://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css">
+    <link rel="stylesheet" id="skin" href="https://www71.myfantasyleague.com/skins17/Cheeseheads/Cheeseheads.css" type="text/css">
+    <link rel="stylesheet" id="responsive" href="https://www71.myfantasyleague.com/skins17/Cheeseheads/responsive.css" type="text/css">
+    <link rel="stylesheet" id="custom" href="https://mfl.hazelknot.com/css/style.css" type="text/css">
 	<style type="text/css">
 		@import "iframe.css";
 		.sort{cursor:pointer;}
@@ -83,13 +85,13 @@ while ($team=$teams->fetch_assoc()){
 	echo "<td width=50%>";
 	echo "<table class='homepagemodule report' align='center'><span><caption>$name</caption></span><tbody>";
 	echo "<tr><th></th>";
-	for ($week=1;$week<18;$week++)
+	for ($week=1;$week<19;$week++)
 			echo "<th>$week</th>";
 	echo "<th>TOT</th></tr>";
 	$trclass='oddtablerow';
 	foreach($positions as $position){
 		echo "<tr class='$trclass'><td>$position</td>";
-		for ($week=1;$week<18;$week++){
+		for ($week=1;$week<19;$week++){
 			$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position' AND week='$week'";
 			$result=$db->query($query);
 			$row=$result->fetch_assoc();
