@@ -33,7 +33,7 @@ if (!isset($week) or $week==''){
 	$startDate=strtotime(SEASON_START);
 	$week=ceil(($currentDate-$startDate)/604800);
 	$week=$week<1?1:$week;
-	$week=$week>21?21:$week;
+	$week=$week>22?22:$week;
 }
 echo "<form name='sortform' id='sortform' method='get' action='pos_totals.php'>";
 echo "<input type='hidden' name='sort' value='' id='sort' />";
@@ -83,13 +83,13 @@ while ($team=$teams->fetch_assoc()){
 	echo "<td width=50%>";
 	echo "<table class='homepagemodule report' align='center'><span><caption>$name</caption></span><tbody>";
 	echo "<tr><th></th>";
-	for ($week=1;$week<17;$week++)
+	for ($week=1;$week<18;$week++)
 			echo "<th>$week</th>";
 	echo "<th>TOT</th></tr>";
 	$trclass='oddtablerow';
 	foreach($positions as $position){
 		echo "<tr class='$trclass'><td>$position</td>";
-		for ($week=1;$week<17;$week++){
+		for ($week=1;$week<18;$week++){
 			$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position' AND week='$week'";
 			$result=$db->query($query);
 			$row=$result->fetch_assoc();
@@ -106,7 +106,7 @@ while ($team=$teams->fetch_assoc()){
 		$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
 	}
 	echo "<tr class='$trclass'><td>TOT</td>";
-	for ($week=1;$week<17;$week++){
+	for ($week=1;$week<18;$week++){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND week='$week'";
         $result=$db->query($query);
         $row=$result->fetch_assoc();

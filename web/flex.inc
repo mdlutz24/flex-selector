@@ -12,9 +12,9 @@ $vpick='FFFFFF';
 $icarry='FF5555';
 $vcarry='55ff55';
 
-define('YEAR', 2020);
+define('YEAR', 2021);
 define('L_ID', 46324);
-define('SEASON_START', '2020-09-08 04:00:00');
+define('SEASON_START', '2021-09-07 04:00:00');
 define('HOST', 'www71.myfantasyleague.com/');
 define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');
