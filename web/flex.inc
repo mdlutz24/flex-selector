@@ -4,9 +4,9 @@
  * ${fileDescription}
  */
 
-$FLEX_POSITIONS=array('QB', 'RB', 'WR', 'TE', 'K');
-$NUM_STARTERS=array('QB' => 2, 'RB'=> 3, 'WR'=> 3, 'TE'=> 2, 'K' => 2);
-$max_valid= array('QB' => 1, 'RB' => 2, 'WR' => 2, 'TE' => 1, 'K' => 1);
+$FLEX_POSITIONS=array('QB', 'RB', 'WR', 'TE', 'PK');
+$NUM_STARTERS=array('QB' => 2, 'RB'=> 3, 'WR'=> 3, 'TE'=> 2, 'PK' => 2);
+$max_valid= array('QB' => 1, 'RB' => 2, 'WR' => 2, 'TE' => 1, 'PK' => 1);
 $ipick='FF5555';
 $vpick='FFFFFF';
 $icarry='FF5555';
