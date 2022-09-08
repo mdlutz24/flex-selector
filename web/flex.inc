@@ -4,20 +4,21 @@
  * ${fileDescription}
  */
 
-$FLEX_POSITIONS=array('RB', 'WR', 'TE');
-$NUM_STARTERS=array('RB'=> 3, 'WR'=> 3, 'TE'=> 2);
-$max_valid= array('RB' => 2, 'WR' => 2, 'TE' => 1);
+$FLEX_POSITIONS=array('QB', 'RB', 'WR', 'TE', 'K');
+$NUM_STARTERS=array('QB' => 2, 'RB'=> 3, 'WR'=> 3, 'TE'=> 2, 'K' => 2);
+$max_valid= array('QB' => 1, 'RB' => 2, 'WR' => 2, 'TE' => 1, 'K' => 1);
 $ipick='FF5555';
 $vpick='FFFFFF';
 $icarry='FF5555';
 $vcarry='55ff55';
 
-define('YEAR', 2021);
+define('YEAR', 2022);
 define('L_ID', 46324);
-define('SEASON_START', '2021-09-07 04:00:00');
+define('SEASON_START', '2022-09-06 04:00:00');
 define('HOST', 'www71.myfantasyleague.com/');
 define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');
+define('SEASON_LENGTH', 18);
 
 function getData($type, $options = [], $command = 'export') {
   $args = '';

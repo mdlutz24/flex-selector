@@ -137,15 +137,15 @@ if ($true_id==0) {
 }	
 
 $pos='';
-$query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND  position='RB' AND week='$week'";
-$result=getDB()->query($query) ;
-if ($result->num_rows==3) $pos='RB';
-$query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND position='WR' AND week='$week'";
-$result=getDB()->query($query) ;
-if ($result->num_rows==3) $pos='WR';
-$query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND position='TE' AND week='$week'";
-$result=getDB()->query($query) ;
-if ($result->num_rows==2) $pos='TE';
+foreach ($FLEX_POSITIONS as $position) {
+  $query="SELECT * FROM rosters, players WHERE team_id='$id' AND rosters.player_id=players.id AND  position='$position' AND week='$week'";
+  $result=getDB()->query($query);
+  if ($result->num_rows == $NUM_STARTERS[$position]) {
+      $pos = $position;
+      break;
+  }
+}
+
 if ($pos=='') {
 	echo "<tr class='$trclass'><td colspan=4>You have no eligible flex players. Please set your lineup properly, dumbass</td></tr>";
 }
