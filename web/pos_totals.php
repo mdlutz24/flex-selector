@@ -110,8 +110,8 @@ while ($team=$teams->fetch_assoc()){
 		echo "<td>$pos_score</td></tr>";
 		$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
 	}
-	echo "<tr class='$trclass total'><td>TOT</td>";
-	for ($week=1;$week<18;$week++){
+	echo "<tr class='$trclass postotal'><td>TOT</td>";
+	for ($week=1;$week<19;$week++){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND week='$week'";
         $result=$db->query($query);
         $row=$result->fetch_assoc();
