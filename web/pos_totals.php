@@ -26,6 +26,9 @@ include('flex.inc');
 </head>
 <body><?php
 
+function posClass($pos) {
+    return str_replace(" ", '', strtolower($pos));
+}
 $db = getDB();
 
 $sort='total';
@@ -40,11 +43,11 @@ if (!isset($week) or $week==''){
 echo "<form name='sortform' id='sortform' method='get' action='pos_totals.php'>";
 echo "<input type='hidden' name='sort' value='' id='sort' />";
 echo "</form>";
-$positions=array('QB','RB','WR','TE','FLEX','PK','Def');
+$positions=array('QB','RB','WR','TE','FLEX','PK','Def', 'Lost Points');
 echo "<table class='homepagemodule report' align='center'><span><caption>Positional Scores adjusted for FLEX</caption></span><tbody>";
 echo "<tr><th class='sort' onclick=\"document.getElementById('sort').value='team';document.getElementById('sortform').submit()\" >Team</th>";
 foreach ($positions as $position)
-	echo "<th class='sort' onclick=\"document.getElementById('sort').value='$position';document.getElementById('sortform').submit()\" >$position</th>";
+	echo "<th class='sort " . posClass($position) . "' onclick=\"document.getElementById('sort').value='$position';document.getElementById('sortform').submit()\" >$position</th>";
 echo "<th class='sort' onclick=\"document.getElementById('sort').value='total';document.getElementById('sortform').submit()\" >Total</th></tr>";
 if ($sort=='total')
 	$query="SELECT name, id as tid FROM teams ORDER BY (SELECT SUM(score) FROM scores WHERE scores.team_id=tid) DESC";
@@ -64,13 +67,13 @@ while ($row=$result->fetch_assoc()){
 		$scores=$db->query($query);
 		$score=$scores->fetch_assoc();
 		extract($score);
-		echo "<td>$pos_score</td>";
+		echo "<td class='" . posClass($position) . "'>$pos_score</td>";
 	}
 	$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid'";
     $scores=$db->query($query);
     $score=$scores->fetch_assoc();
 	extract($score);
-	echo "<td>$pos_score</td></tr>";
+	echo "<td class='total'>$pos_score</td></tr>";
 	$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
 
 }
@@ -90,7 +93,7 @@ while ($team=$teams->fetch_assoc()){
 	echo "<th>TOT</th></tr>";
 	$trclass='oddtablerow';
 	foreach($positions as $position){
-		echo "<tr class='$trclass'><td>$position</td>";
+		echo "<tr class='$trclass $position'><td>$position</td>";
 		for ($week=1;$week<19;$week++){
 			$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position' AND week='$week'";
 			$result=$db->query($query);
@@ -107,7 +110,7 @@ while ($team=$teams->fetch_assoc()){
 		echo "<td>$pos_score</td></tr>";
 		$trclass=$trclass=='oddtablerow'?'eventablerow':'oddtablerow';
 	}
-	echo "<tr class='$trclass'><td>TOT</td>";
+	echo "<tr class='$trclass " . posClass($position) . "'><td>TOT</td>";
 	for ($week=1;$week<18;$week++){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND week='$week'";
         $result=$db->query($query);

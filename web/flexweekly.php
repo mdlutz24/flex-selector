@@ -134,7 +134,7 @@ foreach ($weeklyResults as $weeklyResult){
                                         $row=$db->query($query)->fetch_object();
 					echo "Found {$row->num} $pos\n";
 					if ($row->num>$max_valid[$pos]){
-						$db->query("DELETE FROM scores WHERE team_id='$team_id' AND week=$week and position='$pos'");
+						$db->query("UPDATE scores SET position='Lost Points' WHERE team_id='$team_id' AND week=$week and position='$pos'");
 						echo "      Removed $pos from scores due to invalid flex \n";				
 					}
 				}			
