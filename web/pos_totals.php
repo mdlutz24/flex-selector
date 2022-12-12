@@ -85,7 +85,7 @@ $teams=$db->query($query);
 while ($team=$teams->fetch_assoc()){
 	extract($team);
 	if ($col==1) echo "<tr>";
-	echo "<td width=50%>";
+	echo "<td>";
 	echo "<table class='homepagemodule report' align='center'><span><caption>$name</caption></span><tbody>";
 	echo "<tr><th></th>";
 	for ($week=1;$week<19;$week++)
@@ -126,8 +126,8 @@ while ($team=$teams->fetch_assoc()){
 	extract($row);
 	echo "<td>$pos_score</td></tr></table>";
 	echo "</td>";
-	if ($col==2) echo "</tr>";
-	$col=$col==1?2:1;
+	if ($col==1) echo "</tr>";
+	//$col=$col==1?2:1;
 }		
 echo "</table>";
 
