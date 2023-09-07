@@ -12,10 +12,10 @@ $vpick='FFFFFF';
 $icarry='FF5555';
 $vcarry='55ff55';
 
-define('YEAR', 2022);
+define('YEAR', 2023);
 define('L_ID', 46324);
-define('SEASON_START', '2022-09-06 04:00:00');
-define('HOST', 'www71.myfantasyleague.com/');
+define('SEASON_START', '2023-09-05 04:00:00');
+define('HOST', 'www43.myfantasyleague.com/');
 define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');
 define('SEASON_LENGTH', 18);
@@ -111,12 +111,13 @@ function getPos($id){
   return $row['position'];
 }
 
-function checkValid($team_id, $player_id){
+function checkValid($team_id, $player_id, $flexweek=NULL){
   global $NUM_STARTERS;
   global $week;
+  $flexweek = $flexweek?$flexweek:$week;
   $db = getDB();
   $pos=getPos($player_id);
-  $query="SELECT count(DISTINCT(player_id)) as total FROM rosters, players WHERE team_id='$team_id' AND week='$week' AND players.id=player_id AND position='$pos'";
+  $query="SELECT count(DISTINCT(player_id)) as total FROM rosters, players WHERE team_id='$team_id' AND week='$flexweek' AND players.id=player_id AND position='$pos'";
   $result=$db->query($query);
   $row=$result->fetch_assoc();
 
