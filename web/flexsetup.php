@@ -84,10 +84,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
     window.addEventListener('message', function(event) {
 
       // IMPORTANT: Check the origin of the data!
-      if (~event.origin.indexOf('https://www71.myfantasyleague.com')) {
+      if (~event.origin.indexOf('https://www43.myfantasyleague.com')) {
         // The data has been sent from your site
 
-        window.parent.postMessage($('#flex-table .report').height(), 'https://www71.myfantasyleague.com');
+        window.parent.postMessage($('#flex-table .report').height(), 'https://www43.myfantasyleague.com');
         // The data sent with postMessage is stored in event.data
         console.log(event.data);
       } else {
