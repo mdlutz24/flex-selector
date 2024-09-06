@@ -67,9 +67,9 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
 	<title>
 		Flex Select
 	</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="https://www71.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css">
-    <link rel="stylesheet" id="skin" href="https://www71.myfantasyleague.com/skins17/Cheeseheads/Cheeseheads.css" type="text/css">
-    <link rel="stylesheet" id="responsive" href="https://www71.myfantasyleague.com/skins17/Cheeseheads/responsive.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,700|Roboto:400,400i,700" rel="stylesheet"><link rel="stylesheet" id="default" href="https://www43.myfantasyleague.com/skins17/MFLBaseCSS.css" type="text/css">
+    <link rel="stylesheet" id="skin" href="https://www43.myfantasyleague.com/skins17/Cheeseheads/Cheeseheads.css" type="text/css">
+    <link rel="stylesheet" id="responsive" href="https://www43.myfantasyleague.com/skins17/Cheeseheads/responsive.css" type="text/css">
     <link rel="stylesheet" id="custom" href="https://mfl.hazelknot.com/css/style.css" type="text/css">
 <style type='text/css'>
 	body{
