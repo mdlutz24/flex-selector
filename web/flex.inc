@@ -7,14 +7,14 @@
 $FLEX_POSITIONS=array('QB', 'RB', 'WR', 'TE', 'PK');
 $NUM_STARTERS=array('QB' => 2, 'RB'=> 3, 'WR'=> 3, 'TE'=> 2, 'PK' => 2);
 $max_valid= array('QB' => 1, 'RB' => 2, 'WR' => 2, 'TE' => 1, 'PK' => 1);
-$ipick='FF5555';
-$vpick='FFFFFF';
-$icarry='FF5555';
-$vcarry='55ff55';
+$ipick='3b0a06';
+$vpick='377336';
+$icarry='822822';
+$vcarry='084007';
 
-define('YEAR', 2023);
+define('YEAR', 2024);
 define('L_ID', 46324);
-define('SEASON_START', '2023-09-05 04:00:00');
+define('SEASON_START', '2024-09-03 04:00:00');
 define('HOST', 'www43.myfantasyleague.com/');
 define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');

@@ -43,7 +43,10 @@ if (isset($flex) && $flex!='' && $userchange!="TRUE") {
         loadRosters($week, $weeklyResults);
         loadSchedule($week, $schedule);
         loadTeams();
-// 	    loadPlayers();
+        if ( $loadPlayers) {
+            loadPlayers();
+        }
+
     }
 
 
