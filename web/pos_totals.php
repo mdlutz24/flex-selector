@@ -15,10 +15,11 @@ include('flex.inc');
     <link rel="stylesheet" id="responsive" href="https://www43.myfantasyleague.com/skins17/Cheeseheads/responsive.css" type="text/css">
     <link rel="stylesheet" id="custom" href="https://mfl.hazelknot.com/css/style.css" type="text/css">
 	<style type="text/css">
-		@import "iframe.css";
+		@import "css/iframe.css";
 		.sort{cursor:pointer;}
 		.sort:hover{cursor:pointer;text-decoration:underline;}
 		body{background:transparent;}
+        tr.self{font-weight: bold;}
                 
                 table{width:100%;}
 	</style>
@@ -42,6 +43,7 @@ if (!isset($week) or $week==''){
 }
 echo "<form name='sortform' id='sortform' method='get' action='pos_totals.php'>";
 echo "<input type='hidden' name='sort' value='' id='sort' />";
+echo "<input type='hidden' name='franchise_id' value='" . $franchise_id . "' id='sort' />";
 echo "</form>";
 $positions=array('QB','RB','WR','TE','FLEX','PK','Def', 'Lost Points');
 echo "<table class='homepagemodule report' align='center'><span><caption>Positional Scores adjusted for FLEX</caption></span><tbody>";
@@ -61,7 +63,7 @@ $trclass='oddtablerow';
 
 while ($row=$result->fetch_assoc()){
 	extract($row);	
-	echo "<tr class='$trclass'><td>$name</td>";
+	echo "<tr class='$trclass" . (($tid==$franchise_id) ? " self" : "") . "'><td>$name</td>";
 	foreach($positions as $position){
 		$query="SELECT SUM(score) as pos_score FROM scores WHERE team_id='$tid' AND position='$position'";
 		$scores=$db->query($query);
