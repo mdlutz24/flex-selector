@@ -15,7 +15,6 @@ include('flex.inc');
     <link rel="stylesheet" id="responsive" href="https://www43.myfantasyleague.com/skins17/Cheeseheads/responsive.css" type="text/css">
     <link rel="stylesheet" id="custom" href="https://mfl.hazelknot.com/css/style.css" type="text/css">
 	<style type="text/css">
-		@import "css/iframe.css";
 		.sort{cursor:pointer;}
 		.sort:hover{cursor:pointer;text-decoration:underline;}
 		body{background:transparent;}
