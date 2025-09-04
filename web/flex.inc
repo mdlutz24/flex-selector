@@ -12,9 +12,9 @@ $vpick='377336';
 $icarry='822822';
 $vcarry='084007';
 
-define('YEAR', 2024);
+define('YEAR', 2025);
 define('L_ID', 46324);
-define('SEASON_START', '2024-09-03 04:00:00');
+define('SEASON_START', '2024-09-02 04:00:00');
 define('HOST', 'www43.myfantasyleague.com/');
 define('GENERAL_HOST', 'api.myfantasyleague.com');
 define('PROTOCOL', 'https://');
@@ -166,4 +166,11 @@ function loadRosters($week, $weeklyResults){
     }
   }
 
+
+}
+
+function makeCall($url, $data = [], $options = []) {
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_USERAGENT, "MONL:flex-selector");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 }
